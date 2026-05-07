@@ -1,0 +1,278 @@
+:root{
+  --bg: #f4f4ef;
+  --ink: #282825;
+  --line: 0.5px;
+  --padX: 10px;
+  --padY: 20px;
+  --serif: "mrs-eaves", serif;
+  --sans: "mr-eaves-sans", sans-serif;
+
+  /* type sizes */
+  --title: clamp(18px, 2vw, 28px);
+  --rule: clamp(18px, 2vw, 28px);
+  --ingredient: clamp(28px, 4vw, 48px);
+  --prompt: clamp(12px, 2vw, 22px);
+  --btn: clamp(18px, 2vw, 28px);
+
+  /* belt speed (bigger = slower) */
+  --beltDuration: 100s; /* <- 여기 숫자 키우면 더 느려짐 (예: 60s) */
+}
+
+/* basic */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family: var(--serif);
+}
+
+/* outer frame (the rectangle border you want) */
+.frame{
+  min-height:100vh;
+  padding: var(--padY) var(--padX);
+}
+
+/* top bar line */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start; /* 타이틀/RULE 높이 맞추기 */
+  padding: 0 0 14px 0;
+  border-bottom: var(--line) solid var(--ink);
+}
+
+/* title */
+.topbar__title{
+  font-size: var(--title);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  font-family: var(--sans);
+}
+
+/* RULE */
+.rule{
+  position:relative;
+  font-size: var(--rule);
+  line-height: 1;
+  font-family: var(--sans);
+}
+
+/* clickable label area */
+.rule__label{
+  cursor:default;
+  letter-spacing: 0.02em;
+  text-align:right;
+}
+
+/* RULE “wall” panel (hidden by default!) */
+.rule__panel{
+  display:none;               /* <- 이게 핵심: hover 아닐 때는 아예 없어야 함 */
+  position:absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  width: min(15vw, 320px);               /* 벽처럼 보이는 폭 */
+  height: 100vh;
+  padding: 18px 18px 14px;
+
+  background: var(--bg);      /* 배경색 동일 */
+  border-left: var(--line) solid var(--ink);
+  border-top: var(--line) solid var(--ink);
+
+  z-index: 9999;
+
+  font-size: var(--prompt);
+  line-height: 1.4;
+}
+
+/* show on hover */
+.rule:hover .rule__panel{
+  display:block;
+}
+
+/* prompt lines */
+.rule__line{
+  margin: 0 0 10px 0;
+}
+
+/* main layout */
+.main{
+  padding-top: 18px;
+}
+
+/* BELT area */
+.belt{
+  padding-top: 2px;
+  padding-bottom: 20px;
+  border-bottom: var(--line) solid var(--ink);
+}
+
+/* each row */
+.beltRow{
+  position: relative;
+  overflow: hidden;
+
+  /* ✅ 고정 height 없애고, 줄 간격을 padding으로 컨트롤 */
+  padding: 4.2px 0;                       /* ✅ 줄 사이 간격(여기만 조절하면 됨) */
+}
+
+/* moving track */
+.track{
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: moveLeft var(--beltDuration) linear infinite;
+
+  /* ✅ track 자체 높이 안정화 */
+  align-items: baseline;
+}
+
+/* alternate rows slightly different speed for “one long chain” 느낌 */
+.beltRow[data-row="2"] .track{ animation-duration: calc(var(--beltDuration) * 1.08); }
+.beltRow[data-row="3"] .track{ animation-duration: calc(var(--beltDuration) * 0.96); }
+.beltRow[data-row="4"] .track{ animation-duration: calc(var(--beltDuration) * 1.12); }
+
+/* keyframes */
+@keyframes moveLeft{
+  from{ transform: translateX(0); }
+  to  { transform: translateX(-50%); } /* we duplicate content so -50% loops seamlessly */
+}
+
+/* ingredient word */
+/* ingredient word */
+.word{
+  font-size: var(--ingredient);
+  line-height: 1;                    /* ✅ 줄 간격 타이트하게 (0.88~1 사이로 취향조절) */
+  padding: 0 24px;
+  cursor: grab;
+  user-select: none;
+
+  color: var(--ink);
+  -webkit-text-stroke: 0px transparent;
+}
+/* hover => outline */
+.word:hover{
+  color: transparent;
+  -webkit-text-stroke: var(--line) var(--ink);
+}
+
+/* selected => ALWAYS outline (even after drag/drop) */
+.word.isSelected{
+  color: transparent;
+  -webkit-text-stroke: var(--line) var(--ink);
+}
+
+/* CANVAS */
+.canvas{
+  position: relative;
+  height: 45vh;
+  padding-top: 26px;
+  background: var(--bg); /* 분홍 뜨면 이 줄로 배경 고정 */
+}
+
+/* dropZone은 존재만 하고 아무것도 막지 않게 */
+.dropZone{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;  /* ⭐ 여기 핵심 */
+  background: transparent; /* ⭐ 분홍 방지 */
+}
+
+.placedLayer{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.placedWord{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+
+  font-size: var(--ingredient);        /* 60pt로 쓰는 변수 */
+  color: transparent;                   /* 채움 없애기 */
+  -webkit-text-stroke: var(--line) var(--ink);  /* 아웃라인 */
+  text-stroke: var(--line) var(--ink);          /* (지원 안될 수도) */
+
+  line-height: 1;
+}
+
+/* Make button */
+.makeBtn{
+  position:absolute;
+  left:50%;
+  top: 84%;
+  transform: translate(-50%, 6vh);
+  z-index:3;           /* ✅ dropZone보다 위 */
+
+  font-size: var(--btn);
+  letter-spacing: 0.02em;
+
+  font-family: var(--sans);
+
+  padding: 10px 22px;
+
+  background: transparent;
+  border: var(--line) solid var(--ink);
+  border-radius: 999px;
+
+  color: var(--ink);
+  cursor:pointer;
+
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.makeBtn:hover{
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* result text */
+.resultText{
+  position:absolute;
+  left:50%;
+  top: calc(72% + 60px);
+  transform: translateX(-50%);
+  z-index:3;           /* ✅ dropZone보다 위 */
+
+  font-family: var(--sans);
+  font-size: 18pt
+}
+
+/* 화면을 2장(빌드/결과)으로 */
+.screen{
+  min-height: 100vh;
+}
+
+/* 결과 화면: 가운데 크게 */
+.screen--result{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.resultWrap{
+  text-align:center;
+}
+
+.resultTitle{
+  font-size: clamp(40px, 6vw, 90px);
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+}
+
+/* 스크롤 애니메이션 부드럽게 */
+html{
+  scroll-behavior: smooth;
+}
+
+/* 결과 화면에서는 makeBtn(=RETRY) 위치 고정 해제 */
+.screen--result .makeBtn{
+  position: static;
+  left: auto;
+  top: auto;
+  transform: none;
+  z-index: auto;
+}
