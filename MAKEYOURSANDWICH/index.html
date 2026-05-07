@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Make Your Sandwich</title>
+
+  <link rel="stylesheet" href="https://use.typekit.net/rcv4oev.css">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- SCREEN 1 -->
+  <section class="screen screen--build">
+    <div class="frame">
+
+      <div class="topbar">
+        <div class="topbar__title">MAKE YOUR SADNWICH</div>
+
+        <div class="rule">
+          <div class="rule__label">RULE</div>
+          <div class="rule__panel">
+            <p class="rule__line">1. think your layers</p>
+            <p class="rule__line">2. click and drag</p>
+            <p class="rule__line">3. wait for the score</p>
+            <p class="rule__line">4. find perfect match</p>
+          </div>
+        </div>
+      </div>
+
+      <main class="main">
+
+        <div class="belt">
+          <div class="beltRow" data-row="1"></div>
+          <div class="beltRow" data-row="2"></div>
+          <div class="beltRow" data-row="3"></div>
+          <div class="beltRow" data-row="4"></div>
+        </div>
+
+        <div class="canvas">
+          <div class="dropZone" id="dropZone"></div>
+          <button class="makeBtn" id="makeBtn">MAKE</button>
+          <div class="resultText" id="resultText"></div>
+        </div>
+
+      </main>
+    </div>
+  </section>
+
+  <!-- SCREEN 2 -->
+  <section class="screen screen--result" id="resultScreen">
+    <div class="resultWrap">
+      <div class="resultTitle" id="resultTitle"></div>
+      <button class="makeBtn" id="retryBtn">RETRY</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
