@@ -84,66 +84,25 @@ INTRO
 
 }
 
-.menu{
+<div class="ui-menu">
 
-  position:absolute;
+  <button class="ui-btn ui-about">
+    ABOUT
+  </button>
 
-  inset:0;
+  <button class="ui-btn ui-posters">
+    POSTERS
+  </button>
 
-}
+  <button class="ui-btn ui-gallery">
+    GALLERY
+  </button>
 
-.menu-btn{
+  <button class="ui-btn ui-book">
+    BOOK
+  </button>
 
-  position:absolute;
-
-  background:transparent;
-
-  color:white;
-
-  border:1px solid white;
-
-  padding:8px 12px;
-
-  font-size:16px;
-
-  cursor:pointer;
-
-}
-
-.menu-btn:hover{
-
-  background:white;
-  color:black;
-
-}
-
-.about{
-
-  top:80px;
-  left:30px;
-
-}
-
-.posters{
-
-  top:80px;
-  right:30px;
-
-}
-
-.gallery{
-
-  bottom:30px;
-  left:30px;
-
-}
-
-.book{
-
-  bottom:30px;
-  right:30px;
-
-}
+</div>
 
 /*
 -----------------------------------
