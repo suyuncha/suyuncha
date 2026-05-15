@@ -48,9 +48,13 @@ INTRO
 
 }
 
+/*
+-----------------------------------
+NEW MAIN
+-----------------------------------
+*/
 
-
-.main{
+.main-new{
 
   width:100vw;
   height:300vh;
@@ -59,9 +63,10 @@ INTRO
 
 }
 
-.main-sticky{
+.main-new-sticky{
 
   position:sticky;
+
   top:0;
 
   width:100vw;
@@ -69,7 +74,13 @@ INTRO
 
 }
 
-.main-title{
+/*
+-----------------------------------
+TITLE
+-----------------------------------
+*/
+
+.main-new-title{
 
   position:absolute;
 
@@ -82,37 +93,78 @@ INTRO
 
   font-size:14px;
 
+  font-weight:normal;
+
 }
 
-<div class="ui-menu">
+/*
+-----------------------------------
+BUTTONS
+-----------------------------------
+*/
 
-.menu{
+.main-new button{
 
   position:absolute;
 
-  inset:0;
+  background:transparent;
 
-  z-index:100;
+  color:white;
+
+  border:1px solid white;
+
+  padding:8px 12px;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  z-index:9999;
 
 }
 
-  <button class="ui-btn ui-about">
-    ABOUT
-  </button>
+.main-new button:hover{
 
-  <button class="ui-btn ui-posters">
-    POSTERS
-  </button>
+  background:white;
 
-  <button class="ui-btn ui-gallery">
-    GALLERY
-  </button>
+  color:black;
 
-  <button class="ui-btn ui-book">
-    BOOK
-  </button>
+}
 
-</div>
+/*
+-----------------------------------
+POSITIONS
+-----------------------------------
+*/
+
+.btn-a{
+
+  top:80px;
+  left:30px;
+
+}
+
+.btn-b{
+
+  top:80px;
+  right:30px;
+
+}
+
+.btn-c{
+
+  bottom:30px;
+  left:30px;
+
+}
+
+.btn-d{
+
+  bottom:30px;
+  right:30px;
+
+}
+
 
 /*
 -----------------------------------
