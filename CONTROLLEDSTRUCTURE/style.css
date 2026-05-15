@@ -50,16 +50,9 @@ INTRO
 
 
 
-/*
------------------------------------
-MAIN
------------------------------------
-*/
-
 .main{
 
   width:100vw;
-
   height:300vh;
 
   position:relative;
@@ -69,19 +62,12 @@ MAIN
 .main-sticky{
 
   position:sticky;
-
   top:0;
 
   width:100vw;
   height:100vh;
 
 }
-
-/*
------------------------------------
-TITLE
------------------------------------
-*/
 
 .main-title{
 
@@ -97,12 +83,6 @@ TITLE
   font-size:14px;
 
 }
-
-/*
------------------------------------
-MENU
------------------------------------
-*/
 
 .menu{
 
@@ -128,25 +108,14 @@ MENU
 
   cursor:pointer;
 
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-
 }
 
 .menu-btn:hover{
 
   background:white;
-
   color:black;
 
 }
-
-/*
------------------------------------
-POSITIONS
------------------------------------
-*/
 
 .about{
 
