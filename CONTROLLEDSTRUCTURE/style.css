@@ -69,16 +69,16 @@ MAIN
 
   position:absolute;
 
-  top:20px;
+  top:10px;
   left:50%;
 
   transform:translateX(-50%);
 
-  font-size:12px;
+  font-size:14px;
 
-  letter-spacing:0.2em;
+  letter-spacing:0.08em;
 
-  opacity:0.7;
+  opacity:1;
 
 }
 
@@ -92,37 +92,96 @@ MAIN
 
 }
 
-.tabs{
+/*
+-----------------------------------
+MENU
+-----------------------------------
+*/
+
+.menu{
 
   position:absolute;
 
-  left:40px;
-  bottom:40px;
-
-  display:flex;
-  gap:10px;
+  inset:0;
 
 }
 
-.tabs button{
+/*
+-----------------------------------
+BUTTON
+-----------------------------------
+*/
+
+.menu-btn{
+
+  position:absolute;
 
   background:transparent;
+
   color:white;
 
-  border:1px solid rgba(255,255,255,0.4);
+  border:1px solid rgba(255,255,255,0.7);
 
-  padding:10px 16px;
+  padding:8px 12px;
 
-  font-size:12px;
+  font-size:16px;
+
+  font-family:Helvetica, Arial, sans-serif;
 
   cursor:pointer;
 
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+
 }
 
-.tabs button:hover{
+/*
+-----------------------------------
+HOVER
+-----------------------------------
+*/
+
+.menu-btn:hover{
 
   background:white;
+
   color:black;
+
+}
+
+/*
+-----------------------------------
+POSITIONS
+-----------------------------------
+*/
+
+.about{
+
+  top:80px;
+  left:30px;
+
+}
+
+.posters{
+
+  top:80px;
+  right:30px;
+
+}
+
+.gallery{
+
+  bottom:30px;
+  left:35px;
+
+}
+
+.book{
+
+  bottom:20px;
+  right:30px;
 
 }
 
