@@ -97,12 +97,12 @@ MAIN
 MENU
 -----------------------------------
 */
+
 .menu{
 
-  position:relative;
+  position:absolute;
 
-  width:100vw;
-  height:100vh;
+  inset:0;
 
 }
 
@@ -112,7 +112,7 @@ BUTTON
 -----------------------------------
 */
 
-.menu-btn{
+.menu button{
 
   position:absolute;
 
@@ -120,13 +120,19 @@ BUTTON
 
   color:white;
 
-  border:1px solid rgba(255,255,255,0.7);
+  border:1px solid white;
 
   padding:8px 12px;
 
   font-size:16px;
 
+  font-family:Helvetica, Arial, sans-serif;
+
   cursor:pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 
 }
 
@@ -136,7 +142,7 @@ HOVER
 -----------------------------------
 */
 
-.menu-btn:hover{
+.menu button:hover{
 
   background:white;
 
