@@ -1,1 +1,276 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  background:black;
+  color:white;
+
+  font-family:Helvetica, Arial, sans-serif;
+
+  overflow-x:hidden;
+
+}
+
+/*
+-----------------------------------
+INTRO
+-----------------------------------
+*/
+
+.intro{
+
+  width:100vw;
+  height:100vh;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:black;
+
+}
+
+.intro-svg{
+
+  position:absolute;
+
+  height:24vh;
+
+  width:auto;
+
+  opacity:1;
+
+  pointer-events:none;
+
+}
+
+
+
+/*
+-----------------------------------
+MAIN
+-----------------------------------
+*/
+
+.main{
+
+  width:100vw;
+  height:300vh;
+
+  position:relative;
+
+}
+
+.main-title{
+
+  position:absolute;
+
+  top:20px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  font-size:12px;
+
+  letter-spacing:0.2em;
+
+  opacity:0.7;
+
+}
+
+.main-sticky{
+
+  position:sticky;
+  top:0;
+
+  width:100vw;
+  height:100vh;
+
+}
+
+.tabs{
+
+  position:absolute;
+
+  left:40px;
+  bottom:40px;
+
+  display:flex;
+  gap:10px;
+
+}
+
+.tabs button{
+
+  background:transparent;
+  color:white;
+
+  border:1px solid rgba(255,255,255,0.4);
+
+  padding:10px 16px;
+
+  font-size:12px;
+
+  cursor:pointer;
+
+}
+
+.tabs button:hover{
+
+  background:white;
+  color:black;
+
+}
+
+/*
+-----------------------------------
+GRID
+-----------------------------------
+*/
+
+.grid-section{
+
+  width:100vw;
+
+  /*
+    interaction scroll
+  */
+  height:500vh;
+
+}
+
+.grid-sticky{
+
+  position:sticky;
+  top:0;
+
+  width:100vw;
+  height:100vh;
+
+}
+
+.grid-container{
+
+  width:100vw;
+  height:100vh;
+
+  display:grid;
+
+  grid-template-columns:repeat(28, 1fr);
+  grid-template-rows:repeat(15, 1fr);
+
+  gap:5px;
+
+  padding:10px;
+
+}
+
+.cube{
+
+  border:1px solid rgba(255,255,255,0.45);
+
+  background:transparent;
+
+  transform:scale(1);
+
+  transition:
+    transform 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    background-color 0.8s ease,
+    border-color 0.8s ease;
+
+}
+
+/*
+-----------------------------------
+INTERACTION
+-----------------------------------
+*/
+
+.cube.hovered{
+
+  background:white;
+  border-color:white;
+
+  transform:scale(1.08);
+
+}
+
+.cube.selected{
+
+  background:white;
+  border-color:white;
+
+  transform:scale(1.08);
+
+}
+
+/*
+-----------------------------------
+SAVE UI
+-----------------------------------
+*/
+
+.save-ui{
+
+  position:absolute;
+
+  bottom:24px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  display:flex;
+  gap:10px;
+
+  z-index:20;
+
+}
+
+.save-ui input{
+
+  background:transparent;
+
+  border:1px solid rgba(255,255,255,0.4);
+
+  color:white;
+
+  padding:10px 14px;
+
+  width:140px;
+
+  outline:none;
+
+  font-size:12px;
+
+  letter-spacing:0.08em;
+
+}
+
+.save-ui button{
+
+  background:transparent;
+
+  color:white;
+
+  border:1px solid rgba(255,255,255,0.4);
+
+  padding:10px 14px;
+
+  font-size:12px;
+
+  cursor:pointer;
+
+}
+
+.save-ui button:hover{
+
+  background:white;
+  color:black;
+
+}
+
 
