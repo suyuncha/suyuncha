@@ -59,11 +59,29 @@ MAIN
 .main{
 
   width:100vw;
+
   height:300vh;
 
   position:relative;
 
 }
+
+.main-sticky{
+
+  position:sticky;
+
+  top:0;
+
+  width:100vw;
+  height:100vh;
+
+}
+
+/*
+-----------------------------------
+TITLE
+-----------------------------------
+*/
 
 .main-title{
 
@@ -74,21 +92,9 @@ MAIN
 
   transform:translateX(-50%);
 
+  color:white;
+
   font-size:14px;
-
-  letter-spacing:0.08em;
-
-  opacity:1;
-
-}
-
-.main-sticky{
-
-  position:sticky;
-  top:0;
-
-  width:100vw;
-  height:100vh;
 
 }
 
@@ -106,13 +112,7 @@ MENU
 
 }
 
-/*
------------------------------------
-BUTTON
------------------------------------
-*/
-
-.menu button{
+.menu-btn{
 
   position:absolute;
 
@@ -126,8 +126,6 @@ BUTTON
 
   font-size:16px;
 
-  font-family:Helvetica, Arial, sans-serif;
-
   cursor:pointer;
 
   transition:
@@ -136,13 +134,7 @@ BUTTON
 
 }
 
-/*
------------------------------------
-HOVER
------------------------------------
-*/
-
-.menu button:hover{
+.menu-btn:hover{
 
   background:white;
 
