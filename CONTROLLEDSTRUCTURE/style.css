@@ -97,12 +97,12 @@ MAIN
 MENU
 -----------------------------------
 */
-
 .menu{
 
-  position:absolute;
+  position:relative;
 
-  inset:0;
+  width:100vw;
+  height:100vh;
 
 }
 
@@ -126,14 +126,7 @@ BUTTON
 
   font-size:16px;
 
-  font-family:Helvetica, Arial, sans-serif;
-
   cursor:pointer;
-
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
 
 }
 
@@ -174,13 +167,13 @@ POSITIONS
 .gallery{
 
   bottom:30px;
-  left:35px;
+  left:30px;
 
 }
 
 .book{
 
-  bottom:20px;
+  bottom:30px;
   right:30px;
 
 }
