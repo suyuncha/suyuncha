@@ -86,6 +86,16 @@ INTRO
 
 <div class="ui-menu">
 
+.menu{
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:100;
+
+}
+
   <button class="ui-btn ui-about">
     ABOUT
   </button>
