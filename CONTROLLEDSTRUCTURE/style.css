@@ -57,7 +57,7 @@ NEW MAIN
 .main-new{
 
   width:100vw;
-  height:100vh;
+  height:300vh;
 
   position:relative;
 
@@ -65,7 +65,7 @@ NEW MAIN
 
 .main-new-sticky{
 
-  position:relative;
+  position:sticky;
 
   top:0;
 
