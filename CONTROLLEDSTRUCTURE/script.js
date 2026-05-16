@@ -237,10 +237,10 @@ const introSvgs =
 */
 
 const rows = [
-  8,
-  30,
+  12,
+  32,
   52,
-  74
+  72
 ];
 
 /*
@@ -312,6 +312,9 @@ introSvgs.forEach((svg, index) => {
 
   svg.style.left =
     `${left}%`;
+
+  svg.style.transform =
+  'translateY(-50%)';
 
 });
 
