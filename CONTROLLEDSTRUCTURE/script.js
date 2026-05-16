@@ -225,7 +225,99 @@ introSvgs.forEach((svg, index) => {
 
 /*
 ===================================
-INTRO SVG MOTION
+INTRO SVG SYSTEM
+===================================
+*/
+
+const introSvgs =
+  document.querySelectorAll('.intro-svg');
+
+/*
+  fixed rows
+*/
+
+const rows = [
+  8,
+  30,
+  52,
+  74
+];
+
+/*
+  track positions
+*/
+
+const rowPositions = {
+  8: [],
+  30: [],
+  52: [],
+  74: []
+};
+
+/*
+  placement
+*/
+
+introSvgs.forEach((svg, index) => {
+
+  /*
+    assign row
+  */
+
+  const row =
+    rows[index % 4];
+
+  /*
+    prevent overlap
+  */
+
+  let left;
+  let safe = false;
+
+  while(!safe){
+
+    left =
+      Math.random() * 75;
+
+    safe = true;
+
+    rowPositions[row].forEach(pos => {
+
+      /*
+        overlap distance
+      */
+
+      if(Math.abs(pos - left) < 18){
+
+        safe = false;
+
+      }
+
+    });
+
+  }
+
+  /*
+    save position
+  */
+
+  rowPositions[row].push(left);
+
+  /*
+    apply
+  */
+
+  svg.style.top =
+    `${row}%`;
+
+  svg.style.left =
+    `${left}%`;
+
+});
+
+/*
+===================================
+INTRO MOTION
 ===================================
 */
 
@@ -237,16 +329,16 @@ window.addEventListener('scroll', () => {
   introSvgs.forEach((svg, index) => {
 
     /*
-      different movement
+      slight drift
     */
 
-    const moveX =
+    const drift =
       Math.sin(
         scroll * 0.01 + index
-      ) * 40;
+      ) * 20;
 
-    svg.style.marginLeft =
-      `${moveX}px`;
+    svg.style.transform =
+      `translateX(${drift}px)`;
 
   });
 
