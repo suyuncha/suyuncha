@@ -341,8 +341,7 @@ window.addEventListener('scroll', () => {
       ) * 20;
 
     svg.style.transform =
-      `translateX(${drift}px)`;
-
+  `translate(${drift}px, -50%)`;
   });
 
 });
