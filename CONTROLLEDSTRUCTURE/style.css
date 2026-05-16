@@ -38,13 +38,15 @@ INTRO
 
   position:absolute;
 
-  height:24vh;
+  height:12vh;
 
   width:auto;
 
   opacity:1;
 
   pointer-events:none;
+
+  will-change:transform;
 
 }
 
