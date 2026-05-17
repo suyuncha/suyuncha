@@ -218,52 +218,11 @@ place svg
 
 introSvgs.forEach((svg, index) => {
 
-  /*
-    choose lane
-  */
-
   const lane =
     lanes[index % 4];
 
-  /*
-    x placement
-  */
-
-  let x;
-  let safe = false;
-
-  while(!safe){
-
-    x =
-      Math.random() * 75;
-
-    safe = true;
-
-    laneMemory[lane].forEach(pos => {
-
-      /*
-        prevent overlap
-      */
-
-      if(Math.abs(pos - x) < 22){
-
-        safe = false;
-
-      }
-
-    });
-
-  }
-
-  /*
-    save x
-  */
-
-  laneMemory[lane].push(x);
-
-  /*
-    apply
-  */
+  const x =
+    Math.random() * 80;
 
   svg.style.top =
     `${lane}%`;
