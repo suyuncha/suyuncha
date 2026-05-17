@@ -128,11 +128,25 @@ SCROLL
 ===================================
 */
 
+let scrollLock = false;
+
 window.addEventListener(
   'wheel',
   event => {
 
+    /*
+      prevent spam
+    */
+
+    if(scrollLock) return;
+
+    scrollLock = true;
+
     clearInterval(autoFlip);
+
+    /*
+      direction
+    */
 
     if(event.deltaY > 0){
 
@@ -143,6 +157,16 @@ window.addEventListener(
       previousPage();
 
     }
+
+    /*
+      unlock
+    */
+
+    setTimeout(() => {
+
+      scrollLock = false;
+
+    }, 500);
 
     /*
       restart autoplay
