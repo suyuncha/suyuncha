@@ -26,6 +26,8 @@ INTRO
   width:100vw;
   height:100vh;
 
+transition:opacity 1.8s ease;
+
   position:relative;
 
   overflow:hidden;
@@ -55,6 +57,7 @@ INTRO
   will-change:transform;
 
 }
+
 /*
 -----------------------------------
 LANES
@@ -69,7 +72,7 @@ LANES
 
   display:flex;
 
-  gap:40px;
+  Gap:0.5vw;
 
   align-items:center;
 
@@ -92,15 +95,15 @@ POSITIONS
 */
 
 .lane-1{
-  top:4%;
+  top:1%;
 }
 
 .lane-2{
-  top:28%;
+  top:26%;
 }
 
 .lane-3{
-  top:52%;
+  top:51%;
 }
 
 .lane-4{
@@ -370,5 +373,4 @@ SAVE UI
   color:black;
 
 }
-
 
