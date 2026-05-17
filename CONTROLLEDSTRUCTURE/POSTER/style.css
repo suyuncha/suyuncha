@@ -23,13 +23,13 @@ body{
     Arial,
     sans-serif;
 
-  overflow-x:hidden;
+  overflow:hidden;
 
 }
 
 /*
 -----------------------------------
-TOP BAR
+TOP
 -----------------------------------
 */
 
@@ -37,18 +37,13 @@ TOP BAR
 
   position:fixed;
 
-  top:0;
-  left:0;
+  top:24px;
 
   width:100%;
 
   display:flex;
 
   justify-content:center;
-
-  align-items:center;
-
-  padding:24px;
 
   z-index:100;
 
@@ -56,79 +51,43 @@ TOP BAR
 
 .page-title{
 
-  font-size:14px;
-
-  letter-spacing:0.08em;
-
-  border:1px solid white;
-
-  padding:4px 8px;
-
-}
-
-.close-btn{
-
-  position:fixed;
-
-  left:50%;
-
-  bottom:28px;
-
-  transform:translateX(-50%);
-
-  color:white;
-
-  text-decoration:none;
-
-  font-size:14px;
-
   border:1px solid white;
 
   padding:5px 10px;
 
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
+  font-size:14px;
 
-}
-
-.close-btn:hover{
-
-  background:white;
-
-  color:black;
+  letter-spacing:0.08em;
 
 }
 
 /*
 -----------------------------------
-POSTER SECTION
+POSTERS
 -----------------------------------
 */
 
 .poster-section{
 
-  width:100%;
+  width:100vw;
 
-  min-height:100vh;
+  height:100vh;
 
   display:flex;
 
   justify-content:center;
 
-  align-items:flex-start;
+  align-items:center;
 
-  gap:1.5vw;
+  gap:0.5vw;
 
-  padding-top:140px;
-
-  padding-bottom:80px;
+  padding:40px;
 
 }
 
 /*
 -----------------------------------
-POSTER ITEM
+ITEM
 -----------------------------------
 */
 
@@ -140,13 +99,11 @@ POSTER ITEM
 
   align-items:center;
 
-  position:relative;
-
 }
 
 /*
 -----------------------------------
-POSTER IMAGE
+IMAGE
 -----------------------------------
 */
 
@@ -156,24 +113,16 @@ POSTER IMAGE
 
   border:1px solid white;
 
-  display:block;
-
-  position:relative;
-
-  z-index:1;
-
-  transform-origin:center center;
+  cursor:pointer;
 
   transition:
-    transform 0.25s ease;
+    transform 0.2s ease;
 
 }
 
 .poster-item img:hover{
 
-  transform:scale(2);
-
-  z-index:20;
+  transform:scale(1.03);
 
 }
 
@@ -190,5 +139,91 @@ NUMBER
   font-size:12px;
 
   letter-spacing:0.08em;
+
+}
+
+/*
+-----------------------------------
+CLOSE
+-----------------------------------
+*/
+
+.close-btn{
+
+  position:fixed;
+
+  left:50%;
+
+  bottom:28px;
+
+  transform:translateX(-50%);
+
+  color:white;
+
+  text-decoration:none;
+
+  border:1px solid white;
+
+  padding:5px 10px;
+
+  font-size:14px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+
+  z-index:100;
+
+}
+
+.close-btn:hover{
+
+  background:white;
+
+  color:black;
+
+}
+
+/*
+-----------------------------------
+PREVIEW
+-----------------------------------
+*/
+
+.poster-preview{
+
+  position:fixed;
+
+  inset:0;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  background:rgba(0,0,0,0.88);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:opacity 0.2s ease;
+
+  z-index:999;
+
+}
+
+.poster-preview.active{
+
+  opacity:1;
+
+}
+
+.poster-preview img{
+
+  width:32vw;
+
+  border:1px solid white;
 
 }
