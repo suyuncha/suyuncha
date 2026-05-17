@@ -222,14 +222,27 @@ const lanes =
   document.querySelectorAll('.lane');
 
 /*
------------------------------------
-fill lanes
------------------------------------
+===================================
+FILL LANES
+===================================
 */
 
-lanes.forEach(lane => {
+lanes.forEach((lane, index) => {
 
-  svgFiles.forEach(file => {
+  /*
+    random order
+  */
+
+  const shuffled =
+    [...svgFiles].sort(() =>
+      Math.random() - 0.5
+    );
+
+  /*
+    fill lane
+  */
+
+  shuffled.forEach(file => {
 
     const img =
       document.createElement('img');
@@ -240,29 +253,94 @@ lanes.forEach(lane => {
 
   });
 
+  /*
+    duplicate for long scroll
+  */
+
+  shuffled.forEach(file => {
+
+    const img =
+      document.createElement('img');
+
+    img.src = file;
+
+    lane.appendChild(img);
+
+  });
+
+  /*
+    random starting point
+  */
+
+  const randomOffset =
+    Math.random() * -1200;
+
+  lane.dataset.offset =
+    randomOffset;
+
 });
 
 /*
------------------------------------
-motion
------------------------------------
+===================================
+AUTO MOTION
+===================================
 */
 
-window.addEventListener('scroll', () => {
+let autoMove = 0;
+
+function animateLanes(){
+
+  /*
+    constant motion
+  */
+
+  autoMove += 0.35;
+
+  /*
+    scroll influence
+  */
 
   const scroll =
     window.scrollY;
 
   lanes.forEach((lane, index) => {
 
+    /*
+      different speed
+    */
+
     const speed =
-      (index + 1) * 0.3;
+      0.12 + (index * 0.04);
+
+    /*
+      saved offset
+    */
+
+    const offset =
+      parseFloat(
+        lane.dataset.offset
+      );
+
+    /*
+      total movement
+    */
+
+    const move =
+      offset - autoMove - (scroll * speed);
+
+    /*
+      apply
+    */
 
     lane.style.transform =
-      `translateX(${
-        -(scroll * speed)
-      }px)`;
+      `translateX(${move}px)`;
 
   });
 
-});
+  requestAnimationFrame(
+    animateLanes
+  );
+
+}
+
+animateLanes();
