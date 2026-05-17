@@ -294,7 +294,7 @@ function animateLanes(){
     constant motion
   */
 
-  autoMove += 0.35;
+  autoMove += 0.9;
 
   /*
     scroll influence
@@ -304,6 +304,22 @@ function animateLanes(){
     window.scrollY;
 
   lanes.forEach((lane, index) => {
+
+/*
+-----------------------------------
+intro fade by scroll
+-----------------------------------
+*/
+
+const intro =
+  document.querySelector('.intro');
+
+const fade =
+  1 - (scroll / window.innerHeight);
+
+intro.style.opacity =
+  Math.max(fade, 0);
+
 
     /*
       different speed
@@ -344,3 +360,31 @@ function animateLanes(){
 }
 
 animateLanes();
+
+/*
+===================================
+AUTO SCROLL TO MAIN
+===================================
+*/
+
+setTimeout(() => {
+
+
+
+  /*
+    scroll
+  */
+
+  setTimeout(() => {
+
+    window.scrollTo({
+
+      top:window.innerHeight,
+
+      behavior:'smooth'
+
+    });
+
+  }, 1200);
+
+}, 3000);
