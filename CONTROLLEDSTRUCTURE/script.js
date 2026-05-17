@@ -177,65 +177,75 @@ window.addEventListener('scroll', () => {
 });
 /*
 ===================================
-INTRO SVG SYSTEM
+INTRO LANE SYSTEM
 ===================================
 */
 
-const introSvgs =
-  document.querySelectorAll('.intro-svg');
+const svgFiles = [
 
-/*
------------------------------------
-4 lanes
------------------------------------
-*/
+  'REPEATF.svg',
+  'A2F.svg',
+  'B5F.svg',
+  'C1F.svg',
+  'CONTROLF.svg',
+  'E2F.svg',
+  'E3F.svg',
+  'E4F.svg',
+  'E5F.svg',
+  'I3F.svg',
+  'I5F.svg',
+  'L1F.svg',
+  'N1F.svg',
+  'N3F.svg',
+  'N5F.svg',
+  'O1F.svg',
+  'O3F.svg',
+  'O5F.svg',
+  'OBSESSIONF.svg',
+  'P2F.svg',
+  'P4F.svg',
+  'PRESSF.svg',
+  'R1F.svg',
+  'R2F.svg',
+  'R4F.svg',
+  'S3F.svg',
+  'S4F.svg',
+  'S5F.svg',
+  'T1F.svg',
+  'T2F.svg',
+  'T3F.svg',
+  'TENSIONF.svg'
 
-const lanes = [
-  12,
-  34,
-  56,
-  78
 ];
 
-/*
------------------------------------
-track x positions
------------------------------------
-*/
-
-const laneMemory = {
-  12: [],
-  34: [],
-  56: [],
-  78: []
-};
+const lanes =
+  document.querySelectorAll('.lane');
 
 /*
 -----------------------------------
-place svg
+fill lanes
 -----------------------------------
 */
 
-introSvgs.forEach((svg, index) => {
+lanes.forEach(lane => {
 
-  const lane =
-    lanes[index % 4];
+  svgFiles.forEach(file => {
 
-  const x =
-    Math.random() * 80;
+    const img =
+      document.createElement('img');
 
-  svg.style.top =
-    `${lane}%`;
+    img.src = file;
 
-  svg.style.left =
-    `${x}%`;
+    lane.appendChild(img);
+
+  });
 
 });
 
 /*
-===================================
-SCROLL MOTION
-===================================
+-----------------------------------
+motion
+-----------------------------------
 */
 
 window.addEventListener('scroll', () => {
@@ -243,23 +253,15 @@ window.addEventListener('scroll', () => {
   const scroll =
     window.scrollY;
 
-  introSvgs.forEach((svg, index) => {
+  lanes.forEach((lane, index) => {
 
-    /*
-      slow drift
-    */
+    const speed =
+      (index + 1) * 0.3;
 
-    const drift =
-      Math.sin(
-        scroll * 0.008 + index
-      ) * 25;
-
-    /*
-      apply
-    */
-
-    svg.style.marginLeft =
-      `${drift}px`;
+    lane.style.transform =
+      `translateX(${
+        -(scroll * speed)
+      }px)`;
 
   });
 
