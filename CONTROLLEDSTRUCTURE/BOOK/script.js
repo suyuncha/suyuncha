@@ -135,6 +135,16 @@ window.addEventListener(
   event => {
 
     /*
+      ignore tiny scroll
+    */
+
+    if(
+      Math.abs(event.deltaY) < 40
+    ){
+      return;
+    }
+
+    /*
       prevent spam
     */
 
@@ -166,7 +176,7 @@ window.addEventListener(
 
       scrollLock = false;
 
-    }, 500);
+    }, 700);
 
     /*
       restart autoplay
