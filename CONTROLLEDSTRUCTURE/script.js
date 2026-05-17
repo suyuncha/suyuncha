@@ -185,24 +185,31 @@ const introSvgs =
   document.querySelectorAll('.intro-svg');
 
 /*
-  fixed rows
+  4 bands
 */
 
-
-
-
-/*
-  place svg
-*/
+const bands = [
+  10,
+  30,
+  50,
+  70
+];
 
 introSvgs.forEach((svg, index) => {
 
   /*
-    row
+    choose band
   */
 
-  const row =
-    rows[index % 4];
+  const baseY =
+    bands[index % 4];
+
+  /*
+    slight vertical variation
+  */
+
+  const offsetY =
+    Math.random() * 8 - 4;
 
   /*
     random x
@@ -212,11 +219,11 @@ introSvgs.forEach((svg, index) => {
     Math.random() * 80;
 
   /*
-    apply position
+    apply
   */
 
   svg.style.top =
-    `${row}%`;
+    `${baseY + offsetY}%`;
 
   svg.style.left =
     `${randomX}%`;
