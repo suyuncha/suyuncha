@@ -240,37 +240,48 @@ const introSvgs =
   document.querySelectorAll('.intro-svg');
 
 /*
-  fixed rows
+-----------------------------------
+4 lanes
+-----------------------------------
 */
 
-const rows = [
+const lanes = [
   12,
-  32,
-  52,
-  72
+  34,
+  56,
+  78
 ];
 
 /*
-  placement memory
+-----------------------------------
+track x positions
+-----------------------------------
 */
 
-const placed = [];
+const laneMemory = {
+  12: [],
+  34: [],
+  56: [],
+  78: []
+};
 
 /*
-  PLACE SVG
+-----------------------------------
+place svg
+-----------------------------------
 */
 
 introSvgs.forEach((svg, index) => {
 
   /*
-    choose row
+    choose lane
   */
 
-  const row =
-    rows[index % 4];
+  const lane =
+    lanes[index % 4];
 
   /*
-    random x
+    x placement
   */
 
   let x;
@@ -283,16 +294,13 @@ introSvgs.forEach((svg, index) => {
 
     safe = true;
 
-    placed.forEach(item => {
+    laneMemory[lane].forEach(pos => {
 
       /*
-        same row overlap
+        prevent overlap
       */
 
-      if(
-        item.row === row &&
-        Math.abs(item.x - x) < 15
-      ){
+      if(Math.abs(pos - x) < 22){
 
         safe = false;
 
@@ -303,20 +311,17 @@ introSvgs.forEach((svg, index) => {
   }
 
   /*
-    save
+    save x
   */
 
-  placed.push({
-    row,
-    x
-  });
+  laneMemory[lane].push(x);
 
   /*
     apply
   */
 
   svg.style.top =
-    `${row}%`;
+    `${lane}%`;
 
   svg.style.left =
     `${x}%`;
