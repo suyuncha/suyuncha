@@ -65,7 +65,7 @@ LANES
 
   position:absolute;
 
-  width:200vw;
+  width:max-content;
 
   display:flex;
 
@@ -92,19 +92,19 @@ POSITIONS
 */
 
 .lane-1{
-  top:0%;
+  top:4%;
 }
 
 .lane-2{
-  top:25%;
+  top:28%;
 }
 
 .lane-3{
-  top:50%;
+  top:52%;
 }
 
 .lane-4{
-  top:75%;
+  top:76%;
 }
 /*
 -----------------------------------
