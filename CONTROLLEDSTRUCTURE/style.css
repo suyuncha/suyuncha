@@ -34,11 +34,20 @@ INTRO
 
 }
 
+.intro-text{
+
+  position:relative;
+
+  width:100%;
+  height:100%;
+
+}
+
 .intro-svg{
 
   position:absolute;
 
-  height:12vh;
+  height:24vh;
 
   width:auto;
 
