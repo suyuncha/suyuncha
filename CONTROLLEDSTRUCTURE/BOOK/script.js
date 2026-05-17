@@ -102,16 +102,7 @@ function previousPage(){
 
 }
 
-/*
-===================================
-AUTO PLAY
-===================================
-*/
 
-let autoFlip =
-  setInterval(nextPage, 4000);
-
-/*
 ===================================
 CLICK
 ===================================
@@ -152,8 +143,6 @@ window.addEventListener(
 
     scrollLock = true;
 
-    clearInterval(autoFlip);
-
     /*
       direction
     */
@@ -178,15 +167,6 @@ window.addEventListener(
 
     }, 700);
 
-    /*
-      restart autoplay
-    */
-
-    autoFlip =
-      setInterval(
-        nextPage,
-        4000
-      );
 
   }
 );
