@@ -1,71 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
-
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <title>BOOK</title>
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BOOK — Controlled Structure</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!--
-  -----------------------------------
-  TOP
-  -----------------------------------
-  -->
-
   <div class="top-bar">
-
-    <div class="page-title">
-      BOOK
-    </div>
-
+    <div class="page-title">BOOK</div>
   </div>
 
-  <!--
-  -----------------------------------
-  VIEWER
-  -----------------------------------
-  -->
+  <button class="close-btn" id="close-btn">X</button>
 
   <section class="book-viewer">
-
-    <img
-      id="book-page"
-      src="page01.jpg"
-      alt="book page"
-    />
-
+    <img id="book-page" src="page01.jpg" alt="book page" />
   </section>
 
-  <!--
-  -----------------------------------
-  CLOSE
-  -----------------------------------
-  -->
-
-  <a
-    href="../"
-    class="close-btn"
-  >
-    X
-  </a>
+  <div class="page-counter" id="page-counter">01 / 22</div>
 
   <script src="script.js"></script>
-
 </body>
-
 </html>
