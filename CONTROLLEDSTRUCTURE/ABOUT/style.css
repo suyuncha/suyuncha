@@ -15,9 +15,8 @@ body {
 .top-bar {
   position: fixed;
   top: 24px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
 }
 
@@ -28,6 +27,7 @@ body {
   font-weight: normal;
   letter-spacing: 0.08em;
   font-family: Helvetica, Arial, sans-serif;
+  white-space: nowrap;
 }
 
 /* CLOSE */
@@ -43,8 +43,8 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   letter-spacing: 0.08em;
   cursor: pointer;
+  z-index: 200;
   transition: background 0.2s ease, color 0.2s ease;
-  z-index: 100;
 }
 
 .close-btn:hover {
@@ -79,22 +79,18 @@ body {
   padding: 6px 14px;
 }
 
-/* 수직선 */
 .diagram-line-v {
   width: 1px;
   height: 32px;
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* 가지 묶음 */
 .diagram-branches {
   display: flex;
   align-items: flex-start;
-  gap: 0;
   position: relative;
 }
 
-/* 가지 위 수평선 — 형제 연결처럼 보이게 */
 .diagram-branches::before {
   content: '';
   position: absolute;
@@ -112,7 +108,6 @@ body {
   padding: 0 20px;
 }
 
-/* 각 가지의 수직선 */
 .diagram-line-h {
   width: 1px;
   height: 24px;
