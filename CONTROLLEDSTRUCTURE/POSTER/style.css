@@ -1,391 +1,112 @@
-/*
------------------------------------
-RESET
------------------------------------
-*/
-
-*{
-
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-
-  background:black;
-
-  color:white;
-
-  font-family:
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  overflow:hidden;
-
+body {
+  background: black;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
 
-/*
------------------------------------
-TOP
------------------------------------
-*/
-
-.top-bar{
-
-  position:fixed;
-
-  top:24px;
-
-  width:100%;
-
-  display:flex;
-
-  justify-content:center;
-
-  z-index:100;
-
+/* TOP BAR */
+.top-bar {
+  position: fixed;
+  top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
 }
 
-.page-title{
-
-  border:1px solid white;
-
-  padding:5px 10px;
-
-  font-size:14px;
-
-  letter-spacing:0.08em;
-
+.page-title {
+  border: 1px solid white;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-/*
------------------------------------
-POSTERS
------------------------------------
-*/
-
-.poster-section{
-
-  width:100vw;
-
-  height:100vh;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  gap:0.5vw;
-
-  padding:40px;
-
+/* CLOSE */
+.close-btn {
+  position: fixed;
+  top: 24px;
+  right: 30px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  z-index: 100;
 }
 
-/*
------------------------------------
-ITEM
------------------------------------
-*/
-
-.poster-item{
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
+.close-btn:hover {
+  background: white;
+  color: black;
 }
 
-/*
------------------------------------
-IMAGE
------------------------------------
-*/
-
-.poster-item img{
-
-  width:17vw;
-
-  border:1px solid white;
-
-  cursor:pointer;
-
-  transition:
-    transform 0.2s ease;
-
+/* POSTER SECTION */
+.poster-section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 80px 40px 40px;
 }
 
-.poster-item img:hover{
-
-  transform:scale(1.03);
-
+.poster-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/*
------------------------------------
-NUMBER
------------------------------------
-*/
-
-.poster-number{
-
-  margin-top:12px;
-
-  font-size:12px;
-
-  letter-spacing:0.08em;
-
+.poster-item img {
+  width: 17vw;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: block;
 }
 
-/*
------------------------------------
-CLOSE
------------------------------------
-*/
-
-.close-btn{
-
-  position:fixed;
-
-  left:50%;
-
-  bottom:28px;
-
-  transform:translateX(-50%);
-
-  color:white;
-
-  text-decoration:none;
-
-  border:1px solid white;
-
-  padding:5px 10px;
-
-  font-size:14px;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-
-  z-index:100;
-
+.poster-item img:hover {
+  transform: scale(1.03);
 }
 
-.close-btn:hover{
-
-  background:white;
-
-  color:black;
-
+.poster-number {
+  margin-top: 12px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-/*
------------------------------------
-PREVIEW
------------------------------------
-*/
-
-.poster-preview{
-
-  position:fixed;
-
-  inset:0;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  background:rgba(0,0,0,0.88);
-
-  opacity:0;
-
-  pointer-events:none;
-
-  transition:opacity 0.2s ease;
-
-  z-index:999;
-
+/* PREVIEW OVERLAY */
+.poster-preview {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.88);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 999;
 }
 
-.poster-preview.active{
-
-  opacity:1;
-
+.poster-preview.active {
+  opacity: 1;
 }
 
-.poster-preview img{
-
-  width:32vw;
-
-  border:1px solid white;
-
-}-----------------------------------
-*/
-
-.poster-section{
-
-  width:100vw;
-
-  height:100vh;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  gap:0.5vw;
-
-  padding:40px;
-
-}
-
-/*
------------------------------------
-ITEM
------------------------------------
-*/
-
-.poster-item{
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-}
-
-/*
------------------------------------
-IMAGE
------------------------------------
-*/
-
-.poster-item img{
-
-  width:17vw;
-
-  border:1px solid white;
-
-  cursor:pointer;
-
-  transition:
-    transform 0.2s ease;
-
-}
-
-.poster-item img:hover{
-
-  transform:scale(1.03);
-
-}
-
-/*
------------------------------------
-NUMBER
------------------------------------
-*/
-
-.poster-number{
-
-  margin-top:12px;
-
-  font-size:12px;
-
-  letter-spacing:0.08em;
-
-}
-
-/*
------------------------------------
-CLOSE
------------------------------------
-*/
-
-.close-btn{
-
-  position:fixed;
-
-  left:50%;
-
-  bottom:28px;
-
-  transform:translateX(-50%);
-
-  color:white;
-
-  text-decoration:none;
-
-  border:1px solid white;
-
-  padding:5px 10px;
-
-  font-size:14px;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-
-  z-index:100;
-
-}
-
-.close-btn:hover{
-
-  background:white;
-
-  color:black;
-
-}
-
-/*
------------------------------------
-PREVIEW
------------------------------------
-*/
-
-.poster-preview{
-
-  position:fixed;
-
-  inset:0;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  background:rgba(0,0,0,0.88);
-
-  opacity:0;
-
-  pointer-events:none;
-
-  transition:opacity 0.2s ease;
-
-  z-index:999;
-
-}
-
-.poster-preview.active{
-
-  opacity:1;
-
-}
-
-.poster-preview img{
-
-  width:32vw;
-
-  border:1px solid white;
-
+.poster-preview img {
+  width: 32vw;
+  border: 1px solid white;
 }
