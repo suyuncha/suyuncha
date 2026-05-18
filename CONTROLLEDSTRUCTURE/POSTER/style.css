@@ -15,9 +15,8 @@ body {
 .top-bar {
   position: fixed;
   top: 24px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
 }
 
@@ -28,9 +27,10 @@ body {
   font-weight: normal;
   letter-spacing: 0.08em;
   font-family: Helvetica, Arial, sans-serif;
+  white-space: nowrap;
 }
 
-/* CLOSE */
+/* CLOSE — fixed, body 직계 자식이므로 transform 간섭 없음 */
 .close-btn {
   position: fixed;
   top: 24px;
@@ -43,8 +43,8 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   letter-spacing: 0.08em;
   cursor: pointer;
+  z-index: 200;
   transition: background 0.2s ease, color 0.2s ease;
-  z-index: 100;
 }
 
 .close-btn:hover {
@@ -73,8 +73,8 @@ body {
   width: 17vw;
   border: 1px solid white;
   cursor: pointer;
-  transition: transform 0.2s ease;
   display: block;
+  transition: transform 0.2s ease;
 }
 
 .poster-item img:hover {
@@ -99,7 +99,7 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
-  z-index: 999;
+  z-index: 50;
 }
 
 .poster-preview.active {
