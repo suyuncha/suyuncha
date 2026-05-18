@@ -115,58 +115,12 @@ bookPage.addEventListener(
 
 /*
 ===================================
-SCROLL
+AUTO FLIP
 ===================================
 */
 
-let scrollLock = false;
+setInterval(() => {
 
-window.addEventListener(
-  'wheel',
-  event => {
+  nextPage();
 
-    /*
-      ignore tiny scroll
-    */
-
-    if(
-      Math.abs(event.deltaY) < 40
-    ){
-      return;
-    }
-
-    /*
-      prevent spam
-    */
-
-    if(scrollLock) return;
-
-    scrollLock = true;
-
-    /*
-      direction
-    */
-
-    if(event.deltaY > 0){
-
-      nextPage();
-
-    } else {
-
-      previousPage();
-
-    }
-
-    /*
-      unlock
-    */
-
-    setTimeout(() => {
-
-      scrollLock = false;
-
-    }, 700);
-
-
-  }
-);
+}, 4500);
