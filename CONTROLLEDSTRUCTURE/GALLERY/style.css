@@ -15,9 +15,8 @@ body {
 .top-bar {
   position: fixed;
   top: 24px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
 }
 
@@ -28,13 +27,15 @@ body {
   font-weight: normal;
   letter-spacing: 0.08em;
   font-family: Helvetica, Arial, sans-serif;
+  white-space: nowrap;
 }
 
-/* CLOSE */
+/* CLOSE — 하단 중앙 */
 .close-btn {
   position: fixed;
-  top: 24px;
-  right: 30px;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
   background: transparent;
   color: white;
   border: 1px solid white;
@@ -43,8 +44,8 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   letter-spacing: 0.08em;
   cursor: pointer;
+  z-index: 200;
   transition: background 0.2s ease, color 0.2s ease;
-  z-index: 100;
 }
 
 .close-btn:hover {
@@ -67,8 +68,8 @@ body {
 .gallery-item {
   position: relative;
   aspect-ratio: 5 / 3;
-  background: white;
   overflow: hidden;
+  background: white;
 }
 
 .gallery-item canvas,
@@ -84,11 +85,11 @@ body {
   background: white;
 }
 
-/* HOVER OVERLAY */
+/* HOVER OVERLAY — 기본은 완전 투명 */
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
