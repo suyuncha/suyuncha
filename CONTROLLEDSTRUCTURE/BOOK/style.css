@@ -16,9 +16,8 @@ body {
 .top-bar {
   position: fixed;
   top: 24px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
 }
 
@@ -29,6 +28,7 @@ body {
   font-weight: normal;
   letter-spacing: 0.08em;
   font-family: Helvetica, Arial, sans-serif;
+  white-space: nowrap;
 }
 
 /* CLOSE */
@@ -44,8 +44,8 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   letter-spacing: 0.08em;
   cursor: pointer;
+  z-index: 200;
   transition: background 0.2s ease, color 0.2s ease;
-  z-index: 100;
 }
 
 .close-btn:hover {
@@ -66,8 +66,8 @@ body {
   width: 34vw;
   border: 1px solid white;
   cursor: pointer;
-  transition: opacity 0.25s ease;
   display: block;
+  transition: opacity 0.25s ease;
 }
 
 /* PAGE COUNTER */
@@ -81,4 +81,5 @@ body {
   color: rgba(255, 255, 255, 0.45);
   font-family: Helvetica, Arial, sans-serif;
   pointer-events: none;
+  z-index: 10;
 }
