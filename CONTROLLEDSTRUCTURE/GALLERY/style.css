@@ -194,3 +194,54 @@ CLOSE
   z-index:20;
 
 }
+
+/*
+-----------------------------------
+MINI GRID
+-----------------------------------
+*/
+
+.mini-grid{
+
+  width:100%;
+  height:100%;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(28, 1fr);
+
+  grid-template-rows:
+    repeat(14, 1fr);
+
+  gap:1px;
+
+}
+
+/*
+-----------------------------------
+MINI CUBE
+-----------------------------------
+*/
+
+.mini-cube{
+
+  border:
+    1px solid
+    rgba(255,255,255,0.08);
+
+}
+
+/*
+-----------------------------------
+ACTIVE
+-----------------------------------
+*/
+
+.mini-cube.active{
+
+  background:white;
+
+  border-color:white;
+
+}
