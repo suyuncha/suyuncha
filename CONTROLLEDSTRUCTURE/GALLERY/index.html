@@ -1,67 +1,23 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>GALLERY</title>
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GALLERY — Controlled Structure</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!--
-  ===================================
-  TITLE
-  ===================================
-  -->
-
-  <div class="gallery-title">
-
-    GALLERY
-
+  <div class="top-bar">
+    <div class="page-title">GALLERY</div>
   </div>
 
-  <!--
-  ===================================
-  GRID
-  ===================================
-  -->
+  <button class="close-btn" id="close-btn">X</button>
 
-  <div
-    class="gallery-grid"
-    id="gallery-grid"
-  ></div>
-
-  <!--
-  ===================================
-  CLOSE
-  ===================================
-  -->
-
-  <a
-    href="/CONTROLLEDSTRUCTURE/#main"
-    class="close-button"
-  >
-
-    X
-
-  </a>
+  <div class="gallery-container">
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </div>
 
   <script src="script.js"></script>
-
 </body>
-
 </html>
