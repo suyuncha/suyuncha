@@ -1,144 +1,84 @@
-/*
------------------------------------
-RESET
------------------------------------
-*/
- 
-*{
-
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-
-  background:black;
-
-  color:white;
-
-  font-family:
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  overflow:hidden;
-
+body {
+  background: black;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  user-select: none;
 }
 
-/*
------------------------------------
-TOP
------------------------------------
-*/
-
-.top-bar{
-
-  position:fixed;
-
-  top:24px;
-
-  width:100%;
-
-  display:flex;
-
-  justify-content:center;
-
-  z-index:100;
-
+/* TOP BAR */
+.top-bar {
+  position: fixed;
+  top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
 }
 
-.page-title{
-
-  border:1px solid white;
-
-  padding:5px 10px;
-
-  font-size:14px;
-
-  letter-spacing:0.08em;
-
+.page-title {
+  border: 1px solid white;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-/*
------------------------------------
-BOOK VIEWER
------------------------------------
-*/
-
-.book-viewer{
-
-  width:100vw;
-
-  height:100vh;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  overflow:hidden;
-
+/* CLOSE */
+.close-btn {
+  position: fixed;
+  top: 24px;
+  right: 30px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  z-index: 100;
 }
 
-/*
------------------------------------
-PAGE
------------------------------------
-*/
-
-#book-page{
-
-  width:34vw;
-
-  border:1px solid white;
-
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-
+.close-btn:hover {
+  background: white;
+  color: black;
 }
 
-/*
------------------------------------
-CLOSE
------------------------------------
-*/
-
-.close-btn{
-
-  position:fixed;
-
-  left:50%;
-
-  bottom:28px;
-
-  transform:translateX(-50%);
-
-  color:white;
-
-  text-decoration:none;
-
-  border:1px solid white;
-
-  padding:5px 10px;
-
-  font-size:14px;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-
-  z-index:100;
-
+/* BOOK VIEWER */
+.book-viewer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.close-btn:hover{
+#book-page {
+  width: 34vw;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+  display: block;
+}
 
-  background:white;
-
-  color:black;
-
+/* PAGE COUNTER */
+.page-counter {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: Helvetica, Arial, sans-serif;
+  pointer-events: none;
 }
