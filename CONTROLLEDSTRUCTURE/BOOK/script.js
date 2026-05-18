@@ -30,16 +30,16 @@ function updatePage(dir) {
     const num = String(currentPage).padStart(2, '0');
     bookPage.src = `page${num}.jpg`;
     pageCounter.textContent = `${num} / ${TOTAL_PAGES}`;
-
     bookPage.style.opacity = '1';
+
     setTimeout(() => { isAnimating = false; }, 100);
   }, 220);
 }
 
-/* CLICK → 다음 페이지 */
+/* CLICK → 다음 */
 bookPage.addEventListener('click', () => updatePage('next'));
 
-/* SCROLL → 다음/이전 페이지 */
+/* SCROLL → 다음/이전 */
 let scrollCooldown = false;
 window.addEventListener('wheel', (e) => {
   if (scrollCooldown) return;
@@ -51,7 +51,6 @@ window.addEventListener('wheel', (e) => {
 /* AUTO FLIP */
 let autoTimer = setInterval(() => updatePage('next'), 4500);
 
-/* 클릭/스크롤 시 자동 타이머 리셋 */
 function resetAutoTimer() {
   clearInterval(autoTimer);
   autoTimer = setInterval(() => updatePage('next'), 4500);
