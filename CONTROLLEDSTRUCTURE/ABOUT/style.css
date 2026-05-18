@@ -1,0 +1,154 @@
+/*
+-----------------------------------
+BASE
+-----------------------------------
+*/
+
+*{
+
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+
+}
+
+body{
+
+  background:black;
+
+  color:white;
+
+  font-family:sans-serif;
+
+  overflow:hidden;
+
+}
+
+/*
+-----------------------------------
+TITLE
+-----------------------------------
+*/
+
+.about-title{
+
+  position:fixed;
+
+  top:24px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  font-size:14px;
+
+  letter-spacing:0.12em;
+
+}
+
+/*
+-----------------------------------
+CONTAINER
+-----------------------------------
+*/
+
+.about-container{
+
+  width:100vw;
+  height:100vh;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:120px;
+
+}
+
+/*
+-----------------------------------
+DIAGRAM
+-----------------------------------
+*/
+
+.about-diagram{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  gap:14px;
+
+  font-size:14px;
+
+  letter-spacing:0.12em;
+
+}
+
+/*
+-----------------------------------
+ARROW
+-----------------------------------
+*/
+
+.arrow{
+
+  opacity:0.4;
+
+}
+
+/*
+-----------------------------------
+TEXT
+-----------------------------------
+*/
+
+.about-text{
+
+  width:420px;
+
+  min-height:120px;
+
+  text-align:left;
+
+  font-size:13px;
+
+  line-height:1.8;
+
+  letter-spacing:0.04em;
+
+  opacity:0.75;
+
+}
+
+/*
+-----------------------------------
+CLOSE
+-----------------------------------
+*/
+
+.close-button{
+
+  position:fixed;
+
+  bottom:24px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  color:white;
+
+  text-decoration:none;
+
+  font-size:14px;
+
+  letter-spacing:0.1em;
+
+}
