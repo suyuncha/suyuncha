@@ -1,376 +1,240 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  
-  background:black;
-  color:white;
-
-  font-family:Helvetica, Arial, sans-serif;
-
-  overflow-x:hidden;
-
+body {
+  background: black;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
 }
+
+/* ===================================
+   INTRO
+   =================================== */
+
+.intro {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: black;
+  transition: opacity 1.8s ease;
+}
+
+.lane {
+  position: absolute;
+  width: max-content;
+  display: flex;
+  gap: 0.5vw;
+  align-items: center;
+}
+
+.lane img {
+  height: 24vh;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.lane-1 { top: 1%; }
+.lane-2 { top: 26%; }
+.lane-3 { top: 51%; }
+.lane-4 { top: 76%; }
+
+/* ===================================
+   MAIN
+   =================================== */
+
+.main-new {
+  width: 100vw;
+  height: 300vh;
+  position: relative;
+}
+
+.main-new-sticky {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-new-title {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.main-new button {
+  position: absolute;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  z-index: 9999;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.main-new button:hover {
+  background: white;
+  color: black;
+}
+
+.btn-a { top: 80px; left: 30px; }
+.btn-b { top: 80px; right: 30px; }
+.btn-c { bottom: 30px; left: 30px; }
+.btn-d { bottom: 30px; right: 30px; }
+
+/* ===================================
+   WAVE SECTION
+   =================================== */
+
+.wave-section {
+  width: 100vw;
+  height: 380vh;
+  /* 웨이브 섹션은 자연스럽게 메인 뒤에 위치 */
+}
+
+.wave-sticky {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.wave-grid {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  gap: 5px;
+  padding: 10px;
+}
+
+/* ===================================
+   SELECTION SECTION
+   =================================== */
 
 /*
------------------------------------
-INTRO
------------------------------------
+  웨이브 바로 다음에 위치.
+  transform 제거 → 겹침 버그 해결.
 */
 
-.intro{
-
-  width:100vw;
-  height:100vh;
-
-transition:opacity 1.8s ease;
-
-  position:relative;
-
-  overflow:hidden;
-
-  background:black;
-
+.selection-section {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
 
-.intro{
-
-  position:relative;
-
+.selection-sticky {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.intro-svg{
-
-  position:absolute;
-
-  height:24vh;
-
-  width:auto;
-
-  opacity:1;
-
-  pointer-events:none;
-
-  will-change:transform;
-
+.selection-grid {
+  width: 100vw;
+  height: calc(100vh - 70px); /* save-ui 공간 확보 */
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  gap: 5px;
+  padding: 10px;
 }
 
-/*
------------------------------------
-LANES
------------------------------------
-*/
-
-.lane{
-
-  position:absolute;
-
-  width:max-content;
-
-  display:flex;
-
-  Gap:0.5vw;
-
-  align-items:center;
-
-}
-
-.lane img{
-
-  height:24vh;
-
-  width:auto;
-
-  flex-shrink:0;
-
-}
-
-/*
------------------------------------
-POSITIONS
------------------------------------
-*/
-
-.lane-1{
-  top:1%;
-}
-
-.lane-2{
-  top:26%;
-}
-
-.lane-3{
-  top:51%;
-}
-
-.lane-4{
-  top:76%;
-}
-/*
------------------------------------
-NEW MAIN
------------------------------------
-*/
-
-.main-new{
-
-  width:100vw;
-  height:300vh;
-
-  position:relative;
-
-}
-
-.main-new-sticky{
-
-  position:sticky;
-
-  top:0;
-
-  width:100vw;
-  height:100vh;
-
-}
-
-/*
------------------------------------
-TITLE
------------------------------------
-*/
-
-.main-new-title{
-
-  position:absolute;
-
-  top:10px;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  color:white;
-
-  font-size:16px;
-
-  font-weight:normal;
-
-}
-
-/*
------------------------------------
-BUTTONS
------------------------------------
-*/
-
-.main-new button{
-
-  position:absolute;
-
-  background:transparent;
-
-  color:white;
-
-  border:1px solid white;
-
-  padding:4px 8px;
-
-  font-size:12px;
-
-  cursor:pointer;
-
-  z-index:9999;
-
-}
-
-.main-new button:hover{
-
-  background:white;
-
-  color:black;
-
-}
-
-/*
------------------------------------
-POSITIONS
------------------------------------
-*/
-
-.btn-a{
-
-  top:80px;
-  left:30px;
-
-}
-
-.btn-b{
-
-  top:80px;
-  right:30px;
-
-}
-
-.btn-c{
-
-  bottom:30px;
-  left:30px;
-
-}
-
-.btn-d{
-
-  bottom:30px;
-  right:30px;
-
-}
-
-
-/*
------------------------------------
-GRID
------------------------------------
-*/
-
-.grid-section{
-
-  width:100vw;
-
-  /*
-    interaction scroll
-  */
-  height:500vh;
-
-}
-
-.grid-sticky{
-
-  position:sticky;
-  top:0;
-
-  width:100vw;
-  height:100vh;
-
-}
-
-.grid-container{
-
-  width:100vw;
-  height:100vh;
-
-  display:grid;
-
-  grid-template-columns:repeat(28, 1fr);
-  grid-template-rows:repeat(15, 1fr);
-
-  gap:5px;
-
-  padding:10px;
-
-}
-
-.cube{
-
-  border:1px solid rgba(255,255,255,0.45);
-
-  background:transparent;
-
-  transform:scale(1);
-
+/* ===================================
+   CUBE
+   =================================== */
+
+.cube {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  transform: scale(1);
   transition:
-    transform 0.45s cubic-bezier(0.19, 1, 0.22, 1),
-    background-color 0.8s ease,
-    border-color 0.8s ease;
-
+    transform 0.35s ease,
+    background-color 0.4s ease,
+    border-color 0.4s ease;
 }
 
-/*
------------------------------------
-INTERACTION
------------------------------------
-*/
-
-.cube.hovered{
-
-  background:white;
-  border-color:white;
-
-  transform:scale(1.08);
-
+/* Wave 큐브는 hover 없음 */
+.wave-grid .cube {
+  pointer-events: none;
 }
 
-.cube.selected{
-
-  background:white;
-  border-color:white;
-
-  transform:scale(1.08);
-
+/* Selection 큐브 hover & selected */
+.selection-grid .cube:hover {
+  background: white;
+  border-color: white;
+  transform: scale(1.08);
+  cursor: pointer;
 }
 
-/*
------------------------------------
-SAVE UI
------------------------------------
-*/
-
-.save-ui{
-
-  position:absolute;
-
-  bottom:24px;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  display:flex;
-  gap:10px;
-
-  z-index:20;
-
+.selection-grid .cube.selected {
+  background: white;
+  border-color: white;
+  transform: scale(1.08);
 }
 
-.save-ui input{
+/* ===================================
+   SAVE UI
+   =================================== */
 
-  background:transparent;
-
-  border:1px solid rgba(255,255,255,0.4);
-
-  color:white;
-
-  padding:10px 14px;
-
-  width:140px;
-
-  outline:none;
-
-  font-size:12px;
-
-  letter-spacing:0.08em;
-
+.save-ui {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
 }
 
-.save-ui button{
-
-  background:transparent;
-
-  color:white;
-
-  border:1px solid rgba(255,255,255,0.4);
-
-  padding:10px 14px;
-
-  font-size:12px;
-
-  cursor:pointer;
-
+.save-ui input {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 10px 14px;
+  width: 140px;
+  outline: none;
+  font-size: 12px;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: 0.08em;
 }
 
-.save-ui button:hover{
-
-  background:white;
-  color:black;
-
+.save-ui input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-family: Helvetica, Arial, sans-serif;
 }
 
+.save-ui button {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 10px 14px;
+  font-size: 12px;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.save-ui button:hover {
+  background: white;
+  color: black;
+}
