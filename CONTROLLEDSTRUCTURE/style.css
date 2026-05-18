@@ -141,6 +141,7 @@ body {
   grid-template-rows: repeat(14, 1fr);
   gap: 5px;
   padding: 10px 10px 70px 10px;
+  pointer-events: none; /* JS로 구간 진입 시 활성화 */
 }
 
 /* ===================================
