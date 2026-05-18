@@ -1,104 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Controlled Structure</title>
-
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!--
-    CURRENT STATUS
-
-    - intro temporary
-    - main temporary
-    - archive not started
-    - grid motion active
-    - hover active
-    - selection active
-    - merge system not started
-  -->
-
   <!-- INTRO -->
-<section class="intro">
+  <section class="intro" id="intro">
+    <div class="lane lane-1"></div>
+    <div class="lane lane-2"></div>
+    <div class="lane lane-3"></div>
+    <div class="lane lane-4"></div>
+  </section>
 
-  <div class="lane lane-1"></div>
-  <div class="lane lane-2"></div>
-  <div class="lane lane-3"></div>
-  <div class="lane lane-4"></div>
-
-</section>
-
-
-<section class="main-new">
-
-  <div class="main-new-sticky">
-
-    <h1 class="main-new-title">
-      CONTROLLED STRUCTURE
-    </h1>
-
-   <button
-  class="btn-a"
-  onclick="window.location.href='./ABOUT/'"
->
-  ABOUT
-</button>
-
-   <button
-  class="btn-b"
-  onclick="window.location.href='./POSTER'"
->
-  POSTERS
-</button>
-
-   <button
-  class="btn-c"
-  onclick="window.location.href='./GALLERY/'"
->
-  GALLERY
-</button>
-
-    <button
-  class="btn-d"
-  onclick="window.location.href='./BOOK/'"
->
-  BOOK
-</button>
-
-  </div>
-
-</section>
-
-
-  <!-- GRID -->
-  <section class="grid-section">
-
-    <div class="grid-sticky">
-
-      <div class="grid-container" id="grid"></div>
-
-    <div class="save-ui">
-
-    <input type="text" placeholder="NAME">
-
-      <button>SAVE</button>
-  
-      <button>UP</button>
-
+  <!-- MAIN -->
+  <section class="main-new" id="main">
+    <div class="main-new-sticky">
+      <h1 class="main-new-title">CONTROLLED STRUCTURE</h1>
+      <button class="btn-a" onclick="window.location.href='./ABOUT/'">ABOUT</button>
+      <button class="btn-b" onclick="window.location.href='./POSTER'">POSTERS</button>
+      <button class="btn-c" onclick="window.location.href='./GALLERY/'">GALLERY</button>
+      <button class="btn-d" onclick="window.location.href='./BOOK/'">BOOK</button>
     </div>
+  </section>
 
-  </div>
+  <!-- WAVE -->
+  <section class="wave-section" id="wave-section">
+    <div class="wave-sticky">
+      <div class="wave-grid" id="wave-grid"></div>
+    </div>
+  </section>
 
+  <!-- SELECTION -->
+  <section class="selection-section" id="selection-section">
+    <div class="selection-sticky">
+      <div class="selection-grid" id="selection-grid"></div>
+      <div class="save-ui">
+        <input type="text" id="name-input" placeholder="NAME" autocomplete="off">
+        <button id="save-btn">SAVE</button>
+        <button id="up-btn">UP</button>
+      </div>
+    </div>
   </section>
 
   <script src="script.js"></script>
-
 </body>
-
 </html>
