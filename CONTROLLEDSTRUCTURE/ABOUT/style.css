@@ -30,11 +30,12 @@ body {
   white-space: nowrap;
 }
 
-/* CLOSE */
+/* CLOSE — 하단 중앙 */
 .close-btn {
   position: fixed;
-  top: 24px;
-  right: 30px;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
   background: transparent;
   color: white;
   border: 1px solid white;
