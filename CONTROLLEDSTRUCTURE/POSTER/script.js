@@ -1,47 +1,22 @@
-/*
-===================================
-POSTER PREVIEW
-===================================
-*/
+/* CLOSE → 메인으로 (인트로 스킵) */
+document.getElementById('close-btn').addEventListener('click', () => {
+  sessionStorage.setItem('skipIntro', 'true');
+  window.location.href = '../';
+});
 
-const posters =
-  document.querySelectorAll(
-    '.poster-item img'
-  );
-
-const preview =
-  document.querySelector(
-    '.poster-preview'
-  );
-
-const previewImg =
-  preview.querySelector('img');
+/* POSTER HOVER PREVIEW */
+const posters = document.querySelectorAll('.poster-item img');
+const preview = document.getElementById('poster-preview');
+const previewImg = document.getElementById('preview-img');
 
 posters.forEach(poster => {
-
-  poster.addEventListener(
-    'mouseenter',
-    () => {
-
-      preview.classList.add(
-        'active'
-      );
-
-      previewImg.src =
-        poster.src;
-
-    }
-  );
-
-  poster.addEventListener(
-    'mouseleave',
-    () => {
-
-      preview.classList.remove(
-        'active'
-      );
-
-    }
-  );
-
+  poster.addEventListener('mouseenter', () => {
+    previewImg.src = poster.src;
+    preview.classList.add('active');
+    preview.style.pointerEvents = 'auto';
+  });
+  poster.addEventListener('mouseleave', () => {
+    preview.classList.remove('active');
+    preview.style.pointerEvents = 'none';
+  });
 });
