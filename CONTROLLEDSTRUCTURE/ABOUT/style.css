@@ -52,86 +52,54 @@ body {
   color: black;
 }
 
-/* MAIN LAYOUT */
-.about-main {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 48px;
-}
-
-/* DIAGRAM */
-.diagram {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.diagram-root {
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  font-weight: normal;
-  font-family: Helvetica, Arial, sans-serif;
-  border: 1px solid white;
-  padding: 6px 14px;
-}
-
-.diagram-line-v {
-  width: 1px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.diagram-branches {
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-}
-
-.diagram-branches::before {
-  content: '';
+/* MINDMAP */
+.mindmap {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.5);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92vw;
+  max-width: 1100px;
+  height: auto;
 }
 
-.diagram-branch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 20px;
+.mindmap line {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 1;
 }
 
-.diagram-line-h {
-  width: 1px;
-  height: 24px;
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.diagram-node {
-  font-size: 11px;
+.node-center {
+  fill: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
   letter-spacing: 0.12em;
-  font-weight: normal;
-  font-family: Helvetica, Arial, sans-serif;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  padding: 5px 10px;
-  white-space: nowrap;
+  text-anchor: middle;
+  dominant-baseline: middle;
 }
 
-/* DESCRIPTION */
-.about-desc {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  font-weight: normal;
+.node-main {
+  fill: white;
   font-family: Helvetica, Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-  max-width: 520px;
-  line-height: 1.8;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.node-sub {
+  fill: rgba(255, 255, 255, 0.45);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 0.08em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.desc {
+  fill: rgba(255, 255, 255, 0.45);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-anchor: middle;
+  dominant-baseline: middle;
 }
