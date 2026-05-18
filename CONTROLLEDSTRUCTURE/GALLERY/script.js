@@ -1,100 +1,135 @@
 /*
 ===================================
-SAVE SYSTEM
+LOAD ENTRIES
 ===================================
 */
 
-const saveButton =
-  document.querySelector(
-    '.save-button'
-  );
+const entries =
+  JSON.parse(
+    localStorage.getItem(
+      'galleryEntries'
+    )
+  ) || [];
 
-const nameInput =
-  document.querySelector(
-    '.name-input'
+/*
+===================================
+GRID
+===================================
+*/
+
+const galleryGrid =
+  document.getElementById(
+    'gallery-grid'
   );
 
 /*
------------------------------------
-SAVE
------------------------------------
+===================================
+RENDER
+===================================
 */
 
-saveButton.addEventListener(
-  'click',
-  () => {
+entries.forEach(
+  entry => {
 
     /*
-      name
+      item
     */
 
-    const name =
-      nameInput.value.trim();
+    const item =
+      document.createElement(
+        'div'
+      );
 
-    if(!name) return;
-
-    /*
-      selected cubes
-    */
-
-    const pattern =
-      [...selected];
-
-    /*
-      existing entries
-    */
-
-    const existing =
-      JSON.parse(
-        localStorage.getItem(
-          'galleryEntries'
-        )
-      ) || [];
-
-    /*
-      new entry
-    */
-
-    const newEntry = {
-
-      name:name,
-
-      pattern:pattern
-
-    };
-
-    /*
-      newest first
-    */
-
-    existing.unshift(
-      newEntry
+    item.classList.add(
+      'gallery-item'
     );
 
     /*
-      limit 20
+      mini grid
     */
 
-    if(existing.length > 20){
+    const miniGrid =
+      document.createElement(
+        'div'
+      );
 
-      existing.pop();
+    miniGrid.classList.add(
+      'mini-grid'
+    );
+
+    /*
+      cubes
+    */
+
+    for(let i = 0; i < 28 * 14; i++){
+
+      const cube =
+        document.createElement(
+          'div'
+        );
+
+      cube.classList.add(
+        'mini-cube'
+      );
+
+      /*
+        selected cubes
+      */
+
+      if(
+        entry.pattern.includes(i)
+      ){
+
+        cube.classList.add(
+          'active'
+        );
+
+      }
+
+      miniGrid.appendChild(
+        cube
+      );
 
     }
 
     /*
-      save
+      overlay
     */
 
-    localStorage.setItem(
-      'galleryEntries',
-      JSON.stringify(existing)
+    const overlay =
+      document.createElement(
+        'div'
+      );
+
+    overlay.classList.add(
+      'gallery-overlay'
     );
 
+    overlay.innerHTML = `
+
+      <div class="gallery-name">
+
+        ${entry.name}
+
+      </div>
+
+    `;
+
     /*
-      reset input
+      append
     */
 
-    nameInput.value = '';
+    item.appendChild(
+      miniGrid
+    );
+
+    item.appendChild(
+      overlay
+    );
+
+    galleryGrid.appendChild(
+      item
+    );
 
   }
 );
