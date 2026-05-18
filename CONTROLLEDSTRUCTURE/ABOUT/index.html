@@ -1,98 +1,76 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>ABOUT</title>
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABOUT — Controlled Structure</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!--
-  ===================================
-  TITLE
-  ===================================
-  -->
-
-  <div class="about-title">
-
-    ABOUT
-
+  <div class="top-bar">
+    <div class="page-title">ABOUT</div>
   </div>
 
-  <!--
-  ===================================
-  CONTENT
-  ===================================
-  -->
+  <button class="close-btn" id="close-btn">X</button>
 
-  <div class="about-container">
+  <main class="about-main">
 
-    <!--
-    -------------------------------
-    DIAGRAM
-    -------------------------------
-    -->
+    <!-- 다이어그램 영역 -->
+    <div class="diagram">
 
-    <div class="about-diagram">
+      <!-- 최상위 타이틀 -->
+      <div class="diagram-root">CONTROLLED STRUCTURE</div>
 
-      <div>POSTER</div>
+      <!-- 연결선 -->
+      <div class="diagram-line-v"></div>
 
-      <div class="arrow">↓</div>
+      <!-- 가지들 -->
+      <div class="diagram-branches">
 
-      <div>BOOK</div>
+        <div class="diagram-branch">
+          <div class="diagram-line-h"></div>
+          <div class="diagram-node">MINIMAL</div>
+        </div>
 
-      <div class="arrow">↓</div>
+        <div class="diagram-branch">
+          <div class="diagram-line-h"></div>
+          <div class="diagram-node">BLACK &amp; WHITE</div>
+        </div>
 
-      <div>WEB</div>
+        <div class="diagram-branch">
+          <div class="diagram-line-h"></div>
+          <div class="diagram-node">POSTER</div>
+        </div>
+
+        <div class="diagram-branch">
+          <div class="diagram-line-h"></div>
+          <div class="diagram-node">BOOK</div>
+        </div>
+
+        <div class="diagram-branch">
+          <div class="diagram-line-h"></div>
+          <div class="diagram-node">WEB</div>
+        </div>
+
+        <!-- 키워드 추가하고 싶으면 여기에 복붙:
+        <div class="diagram-branch">
+          <div class="diagram-line-h"></div>
+          <div class="diagram-node">KEYWORD</div>
+        </div>
+        -->
+
+      </div>
 
     </div>
 
-    <!--
-    -------------------------------
-    TEXT
-    -------------------------------
-    -->
+    <!-- 설명 한 줄 — 여기에 텍스트 넣으면 됨 -->
+    <p class="about-desc">
+      A foundation project exploring controlled structure through repetition, tension, and obsession.
+    </p>
 
-    <div class="about-text">
+  </main>
 
-      <!--
-        add statement later
-      -->
-
-    </div>
-
-  </div>
-
-  <!--
-  ===================================
-  CLOSE
-  ===================================
-  -->
-
-  <a
-    href="/CONTROLLEDSTRUCTURE/#main"
-    class="close-button"
-  >
-
-    X
-
-  </a>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
