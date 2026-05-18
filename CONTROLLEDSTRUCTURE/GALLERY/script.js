@@ -31,10 +31,6 @@ RENDER
 entries.forEach(
   entry => {
 
-    /*
-      item
-    */
-
     const item =
       document.createElement(
         'div'
@@ -71,10 +67,6 @@ entries.forEach(
       cube.classList.add(
         'mini-cube'
       );
-
-      /*
-        selected cubes
-      */
 
       if(
         entry.pattern.includes(i)
@@ -114,10 +106,6 @@ entries.forEach(
       </div>
 
     `;
-
-    /*
-      append
-    */
 
     item.appendChild(
       miniGrid
