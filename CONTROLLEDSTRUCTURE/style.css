@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
- 
+
 body {
   background: black;
   color: white;
@@ -83,7 +83,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   letter-spacing: 0.08em;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 10;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
@@ -104,7 +104,6 @@ body {
 .wave-section {
   width: 100vw;
   height: 380vh;
-  /* 웨이브 섹션은 자연스럽게 메인 뒤에 위치 */
 }
 
 .wave-sticky {
@@ -128,32 +127,20 @@ body {
    SELECTION SECTION
    =================================== */
 
-/*
-  웨이브 바로 다음에 위치.
-  transform 제거 → 겹침 버그 해결.
-*/
-
 .selection-section {
   width: 100vw;
   height: 100vh;
   position: relative;
 }
 
-.selection-sticky {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
 .selection-grid {
   width: 100vw;
-  height: calc(100vh - 70px); /* save-ui 공간 확보 */
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(28, 1fr);
   grid-template-rows: repeat(14, 1fr);
   gap: 5px;
-  padding: 10px;
+  padding: 10px 10px 70px 10px;
 }
 
 /* ===================================
@@ -163,19 +150,16 @@ body {
 .cube {
   border: 1px solid rgba(255, 255, 255, 0.45);
   background: transparent;
-  transform: scale(1);
   transition:
     transform 0.35s ease,
     background-color 0.4s ease,
     border-color 0.4s ease;
 }
 
-/* Wave 큐브는 hover 없음 */
 .wave-grid .cube {
   pointer-events: none;
 }
 
-/* Selection 큐브 hover & selected */
 .selection-grid .cube:hover {
   background: white;
   border-color: white;
@@ -186,30 +170,38 @@ body {
 .selection-grid .cube.selected {
   background: white;
   border-color: white;
-  transform: scale(1.08);
 }
 
 /* ===================================
    SAVE UI
+   position: fixed — 항상 화면 하단
+   JS로 .visible 추가/제거해서 표시
    =================================== */
 
 .save-ui {
-  position: absolute;
+  position: fixed;
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 10px;
-  z-index: 20;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.save-ui.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .save-ui input {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   color: white;
-  padding: 10px 14px;
+  padding: 8px 12px;
   width: 140px;
   outline: none;
   font-size: 12px;
@@ -219,14 +211,13 @@ body {
 
 .save-ui input::placeholder {
   color: rgba(255, 255, 255, 0.4);
-  font-family: Helvetica, Arial, sans-serif;
 }
 
 .save-ui button {
   background: transparent;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 8px 12px;
   font-size: 12px;
   font-family: Helvetica, Arial, sans-serif;
   letter-spacing: 0.08em;
