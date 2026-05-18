@@ -137,7 +137,7 @@ selectionCubes.forEach((cube, index) => {
 });
 
 /* ===================================
-   WAVE MOTION
+   WAVE MOTION + 구간 전환
    =================================== */
 
 window.addEventListener('scroll', () => {
@@ -158,14 +158,37 @@ window.addEventListener('scroll', () => {
   });
 
   /* ===================================
-     SAVE UI 표시/숨김
-     selection section이 뷰포트에 들어올 때만
+     웨이브 구간 → 셀렉션 클릭 비활성
+     셀렉션 구간 진입 → 클릭 활성
      =================================== */
   const selSection = document.getElementById('selection-section');
   const selRect = selSection.getBoundingClientRect();
   const saveUI = document.getElementById('save-ui');
 
-  if (selRect.top < window.innerHeight && selRect.bottom > 0) {
+  const inSelectionZone = selRect.top <= 0;
+
+  /* 셀렉션 큐브 클릭 가능 여부 */
+  selectionGrid.style.pointerEvents = inSelectionZone ? 'auto' : 'none';
+
+  /* 웨이브 구간에서 선택된 큐브 scale 고정 해제
+     (웨이브 움직임 중 실수로 선택된 경우 방지용) */
+  if (!inSelectionZone) {
+    selectionCubes.forEach(cube => {
+      if (!cube.classList.contains('selected')) {
+        cube.style.transform = '';
+      }
+    });
+  }
+
+  /* ===================================
+     SAVE UI — 페이지 맨 아래 근접 시만 표시
+     스크롤이 거의 끝에 도달했을 때
+     =================================== */
+  const scrollBottom = window.scrollY + window.innerHeight;
+  const pageHeight = document.body.scrollHeight;
+  const nearBottom = scrollBottom >= pageHeight - 80;
+
+  if (nearBottom) {
     saveUI.classList.add('visible');
   } else {
     saveUI.classList.remove('visible');
@@ -227,10 +250,9 @@ saveBtn.addEventListener('click', () => {
 });
 
 /* ===================================
-   UP BUTTON → 메인으로 (인트로 스킵)
+   UP BUTTON → 인트로로
    =================================== */
 
 upBtn.addEventListener('click', () => {
-  const main = document.getElementById('main');
-  window.scrollTo({ top: main.offsetTop, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
