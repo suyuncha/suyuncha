@@ -65,7 +65,7 @@ body {
 }
 
 .about-text {
-  font-size: clamp(18px, 2vw, 28px);
+  font-size: var(--ingredient);
   line-height: 1.5;
   font-family: var(--serif);
   color: var(--ink);
