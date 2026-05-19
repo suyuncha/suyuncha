@@ -218,7 +218,7 @@ body {
 
 .save-ui input {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   color: white;
   padding: 8px 12px;
   width: 140px;
@@ -235,7 +235,7 @@ body {
 .save-ui button {
   background: transparent;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   padding: 8px 12px;
   font-size: 12px;
   font-family: Helvetica, Arial, sans-serif;
