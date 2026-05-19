@@ -229,7 +229,7 @@ body {
 }
 
 .save-ui input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .save-ui button {
