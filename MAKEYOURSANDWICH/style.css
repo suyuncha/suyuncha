@@ -57,6 +57,7 @@ body{
   font-size: var(--rule);
   line-height: 1;
   font-family: var(--sans);
+  cursor: pointer;
 }
 
 /* clickable label area */
