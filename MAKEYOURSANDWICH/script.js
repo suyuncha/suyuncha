@@ -269,3 +269,7 @@ function resetAll() {
   // 6) 맨 위로 스크롤
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+document.querySelector('.topbar__title').addEventListener('click', () => {
+  window.location.href = './ABOUT/';
+});
