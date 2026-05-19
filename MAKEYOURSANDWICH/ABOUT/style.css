@@ -40,27 +40,29 @@ body {
   font-family: var(--sans);
 }
 
-/* CLOSE → 메인으로 */
-.close-btn {
-  background: transparent;
-  border: none;
+/* BACK 버튼 — 메인과 동일한 makeBtn 스타일 */
+.makeBtn {
   font-size: var(--title);
-  font-family: var(--sans);
   letter-spacing: 0.02em;
+  font-family: var(--sans);
+  padding: 10px 22px;
+  background: transparent;
+  border: var(--line) solid var(--ink);
+  border-radius: 999px;
   color: var(--ink);
   cursor: pointer;
-  padding: 0;
-  line-height: 1;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-.close-btn:hover {
-  opacity: 0.5;
+.makeBtn:hover {
+  background: var(--ink);
+  color: var(--bg);
 }
 
 /* ABOUT TEXT */
 .main {
   padding-top: 40px;
-  max-width: 520px;
+  max-width: 720px;
 }
 
 .about-text {
@@ -68,5 +70,5 @@ body {
   line-height: 1.5;
   font-family: var(--serif);
   color: var(--ink);
-  margin: 0;
+  margin: 0 0 40px 0;
 }
