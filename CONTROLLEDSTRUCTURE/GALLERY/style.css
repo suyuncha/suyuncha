@@ -70,6 +70,7 @@ body {
   aspect-ratio: 5 / 3;
   overflow: hidden;
   background: white;
+  border: 1px solid white;
 }
 
 .gallery-item canvas,
