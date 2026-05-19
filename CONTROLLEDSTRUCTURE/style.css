@@ -98,42 +98,33 @@ body {
 .btn-d { bottom: 30px; right: 30px; }
 
 /* ===================================
-   WAVE SECTION
+   GRID SECTION
+   wave + selection 합쳐진 섹션
+   480vh = wave 380vh + selection 100vh
    =================================== */
 
-.wave-section {
+.grid-section {
   width: 100vw;
-  height: 380vh;
+  height: 480vh;
 }
 
-.wave-sticky {
+.grid-sticky {
   position: sticky;
   top: 0;
   width: 100vw;
   height: 100vh;
-}
-
-.wave-grid {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(28, 1fr);
-  grid-template-rows: repeat(15, 1fr);
-  gap: 5px;
-  padding: 10px;
+  /* 두 그리드를 겹치기 위해 relative */
+  position: sticky;
 }
 
 /* ===================================
-   SELECTION SECTION
+   WAVE GRID
    =================================== */
 
-.selection-section {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
-
-.selection-grid {
+.wave-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -141,7 +132,36 @@ body {
   grid-template-rows: repeat(15, 1fr);
   gap: 5px;
   padding: 10px;
-  pointer-events: none; /* JS로 구간 진입 시 활성화 */
+  /* 기본: 보임 */
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* ===================================
+   SELECTION GRID
+   =================================== */
+
+.selection-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  gap: 5px;
+  padding: 10px;
+  /* 기본: 숨김, JS로 전환 */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* 셀렉션 활성 상태 */
+.selection-grid.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ===================================
@@ -175,8 +195,6 @@ body {
 
 /* ===================================
    SAVE UI
-   position: fixed — 항상 화면 하단
-   JS로 .visible 추가/제거해서 표시
    =================================== */
 
 .save-ui {
