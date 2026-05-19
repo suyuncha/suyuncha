@@ -6,7 +6,7 @@
   --padY: 20px;
   --serif: "mrs-eaves", serif;
   --sans: "mr-eaves-sans", sans-serif;
-
+ 
   /* type sizes */
   --title: clamp(18px, 2vw, 28px);
   --rule: clamp(18px, 2vw, 28px);
