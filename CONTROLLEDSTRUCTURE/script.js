@@ -211,6 +211,13 @@ window.addEventListener('scroll', () => {
 });
 
 /* ===================================
+   SUPABASE CONFIG
+   =================================== */
+
+const SUPABASE_URL = 'https://xywklnymeunwfmwrlcgx.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5d2tsbnltZXVud2Ztd3JsY2d4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMzc2ODMsImV4cCI6MjA5NDcxMzY4M30.a8q3vj7f9Azt_VSq55Fd2qC9lSbni8ccLWnhDciRxdU';
+
+/* ===================================
    SAVE BUTTON
    =================================== */
 
@@ -218,7 +225,7 @@ const nameInput = document.getElementById('name-input');
 const saveBtn = document.getElementById('save-btn');
 const upBtn = document.getElementById('up-btn');
 
-saveBtn.addEventListener('click', () => {
+saveBtn.addEventListener('click', async () => {
   const name = nameInput.value.trim();
   if (!name) {
     nameInput.focus();
@@ -243,18 +250,33 @@ saveBtn.addEventListener('click', () => {
 
   const imageData = canvas.toDataURL('image/png');
 
-  let existing = [];
+  /* Supabase에 저장 */
+  saveBtn.textContent = 'SAVING...';
+
   try {
-    existing = JSON.parse(localStorage.getItem('galleryEntries')) || [];
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/gallery`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`
+      },
+      body: JSON.stringify({
+        name: name,
+        pattern: JSON.stringify(pattern),
+        image_data: imageData
+      })
+    });
+
+    if (response.ok) {
+      saveBtn.textContent = 'SAVED';
+    } else {
+      saveBtn.textContent = 'ERROR';
+    }
   } catch (e) {
-    existing = [];
+    saveBtn.textContent = 'ERROR';
   }
 
-  existing.unshift({ name, pattern, imageData, timestamp: Date.now() });
-  if (existing.length > 100) existing = existing.slice(0, 100);
-  localStorage.setItem('galleryEntries', JSON.stringify(existing));
-
-  saveBtn.textContent = 'SAVED';
   setTimeout(() => { saveBtn.textContent = 'SAVE'; }, 1500);
 
   nameInput.value = '';
