@@ -93,7 +93,7 @@ setTimeout(() => {
 
 const COLS = 28;
 const WAVE_ROWS = 15;
-const SEL_ROWS = 14;
+const SEL_ROWS = 15;
 
 const waveGrid = document.getElementById('wave-grid');
 const selectionGrid = document.getElementById('selection-grid');
