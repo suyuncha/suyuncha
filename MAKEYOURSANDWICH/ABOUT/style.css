@@ -1,0 +1,72 @@
+:root {
+  --bg: #f4f4ef;
+  --ink: #282825;
+  --line: 0.5px;
+  --padX: 10px;
+  --padY: 20px;
+  --sans: "mr-eaves-sans", sans-serif;
+  --serif: "mrs-eaves", serif;
+  --title: clamp(18px, 2vw, 28px);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+}
+
+.frame {
+  min-height: 100vh;
+  padding: var(--padY) var(--padX);
+}
+
+/* TOP BAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 0 14px 0;
+  border-bottom: var(--line) solid var(--ink);
+}
+
+.topbar__title {
+  font-size: var(--title);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  font-family: var(--sans);
+}
+
+/* CLOSE → 메인으로 */
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: var(--title);
+  font-family: var(--sans);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  opacity: 0.5;
+}
+
+/* ABOUT TEXT */
+.main {
+  padding-top: 40px;
+  max-width: 520px;
+}
+
+.about-text {
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.5;
+  font-family: var(--serif);
+  color: var(--ink);
+  margin: 0;
+}
