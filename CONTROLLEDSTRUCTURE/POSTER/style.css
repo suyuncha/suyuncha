@@ -100,7 +100,7 @@ body {
   background: rgba(0, 0, 0, 0.88);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.18s ease;
+  transition: opacity 0.2s ease;
   z-index: 50;
 }
 
