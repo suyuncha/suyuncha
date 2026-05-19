@@ -42,7 +42,7 @@ body {
 
 /* BACK 버튼 — 메인과 동일한 makeBtn 스타일 */
 .makeBtn {
-  font-size: var(--title);
+  font-size: var(--btn);
   letter-spacing: 0.02em;
   font-family: var(--sans);
   padding: 10px 22px;
