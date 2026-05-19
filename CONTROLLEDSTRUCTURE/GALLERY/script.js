@@ -8,9 +8,8 @@ document.getElementById('close-btn').addEventListener('click', () => {
    GALLERY LOAD
    ============================== */
 
-const TOTAL_SLOTS = 20;
 const COLS = 28;
-const ROWS = 14;
+const ROWS = 15;
 const grid = document.getElementById('gallery-grid');
 
 let entries = [];
