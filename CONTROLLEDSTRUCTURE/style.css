@@ -105,7 +105,7 @@ body {
 
 .grid-section {
   width: 100vw;
-  height: 480vh;
+  height: 530vh; /* 480vh + 50vh 여백 */
 }
 
 .grid-sticky {
