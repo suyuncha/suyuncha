@@ -148,9 +148,10 @@ window.addEventListener('scroll', () => {
   let totalProgress = (-rect.top) / totalScroll;
   totalProgress = Math.max(0, Math.min(totalProgress, 1));
 
-  /* 웨이브 구간: 0 ~ 0.79 (380/480)
-     셀렉션 구간: 0.79 ~ 1.0  (100/480) */
-  const waveEnd = 380 / 480;
+  /* 웨이브 구간: 0 ~ 0.717 (380/530)
+     셀렉션 구간: 0.717 ~ 0.906 (100/530)
+     여백 구간:   0.906 ~ 1.0   (50/530) */
+  const waveEnd = 380 / 530;
 
   /* ===================================
      WAVE MOTION
@@ -195,14 +196,14 @@ window.addEventListener('scroll', () => {
   }
 
   /* ===================================
-     SAVE UI — 맨 아래 근접 시만 표시
+     SAVE UI — 스크롤 맨 끝에서만 표시
      =================================== */
 
   const scrollBottom = window.scrollY + window.innerHeight;
   const pageHeight = document.body.scrollHeight;
-  const nearBottom = scrollBottom >= pageHeight - 80;
+  const atBottom = scrollBottom >= pageHeight - 10;
 
-  if (nearBottom) {
+  if (atBottom) {
     saveUI.classList.add('visible');
   } else {
     saveUI.classList.remove('visible');
