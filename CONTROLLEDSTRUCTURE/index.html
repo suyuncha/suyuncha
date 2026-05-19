@@ -27,19 +27,20 @@
     </div>
   </section>
 
-  <!-- WAVE -->
-  <section class="wave-section" id="wave-section">
-    <div class="wave-sticky">
+  <!-- WAVE + SELECTION: 하나의 섹션 안에 -->
+  <section class="grid-section" id="grid-section">
+    <div class="grid-sticky">
+
+      <!-- 웨이브 그리드 -->
       <div class="wave-grid" id="wave-grid"></div>
+
+      <!-- 셀렉션 그리드: 같은 자리에 겹쳐서 시작, JS로 전환 -->
+      <div class="selection-grid" id="selection-grid"></div>
+
     </div>
   </section>
 
-  <!-- SELECTION -->
-  <section class="selection-section" id="selection-section">
-    <div class="selection-grid" id="selection-grid"></div>
-  </section>
-
-  <!-- SAVE UI: body 바로 아래 fixed로 -->
+  <!-- SAVE UI -->
   <div class="save-ui" id="save-ui">
     <input type="text" id="name-input" placeholder="NAME" autocomplete="off" />
     <button id="save-btn">SAVE</button>
