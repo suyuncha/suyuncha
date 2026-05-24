@@ -1,1 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  background: #f5f5f5;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+}
+
+/* TOP BAR */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 32px;
+  background: #f5f5f5;
+  z-index: 100;
+}
+
+.title {
+  font-size: clamp(18px, 2vw, 28px);
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  font-size: clamp(18px, 2vw, 28px);
+  letter-spacing: 0.02em;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav:hover {
+  opacity: 0.4;
+}
+
+/* MAIN */
+.main {
+  padding: 120px 32px 60px;
+}
+
+/* YEAR GROUP */
+.year-group {
+  margin-bottom: 60px;
+}
+
+.year {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* WORK LIST */
+.work-list {
+  list-style: none;
+}
+
+.work-item {
+  border-top: 0.5px solid #1a1a1a;
+}
+
+.work-item:last-child {
+  border-bottom: 0.5px solid #1a1a1a;
+}
+
+.work-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  text-decoration: none;
+  color: #1a1a1a;
+  transition: opacity 0.2s ease;
+}
+
+.work-link:hover {
+  opacity: 0.4;
+}
+
+.work-title {
+  font-size: clamp(18px, 2vw, 28px);
+  letter-spacing: 0.02em;
+}
+
+.work-tag {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  opacity: 0.4;
+}
