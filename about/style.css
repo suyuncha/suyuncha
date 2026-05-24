@@ -23,12 +23,12 @@ body {
 }
 
 .label {
-  font-size: clamp(18px, 2vw, 28px)
+  font-size: clamp(18px, 2vw, 28px);
   letter-spacing: 0.02em;
 }
 
 .name {
-  font-size: clamp(18px, 2vw, 28px)
+  font-size: clamp(18px, 2vw, 28px);
   letter-spacing: 0.02em;
   color: #1a1a1a;
   text-decoration: none;
