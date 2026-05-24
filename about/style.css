@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 32px;
+}
+
+.label {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.name {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.name:hover {
+  opacity: 0.4;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 32px;
+  gap: 32px;
+}
+
+.desc {
+  font-size: clamp(18px, 2.5vw, 32px);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  font-weight: normal;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+}
+
+.links a {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  text-decoration: none;
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+}
+
+.links a:hover {
+  opacity: 1;
+}
