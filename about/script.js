@@ -1,0 +1,16 @@
+const COLORS = [
+  '#ff3366', '#ff6600', '#00cc66',
+  '#3366ff', '#cc00ff', '#ffcc00',
+  '#00ccff', '#ff0099'
+];
+
+const clickables = document.querySelectorAll('.name, .links a');
+
+clickables.forEach(el => {
+  el.addEventListener('mouseenter', function() {
+    this.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+  });
+  el.addEventListener('mouseleave', function() {
+    this.style.color = '#1a1a1a';
+  });
+});
