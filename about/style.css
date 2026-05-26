@@ -23,16 +23,15 @@ body {
 }
 
 .label {
-  font-size: clamp(18px, 2vw, 28px);
+  font-size: clamp(13px, 1.2vw, 18px);
   letter-spacing: 0.02em;
 }
 
 .name {
-  font-size: clamp(18px, 2vw, 28px);
+  font-size: clamp(13px, 1.2vw, 18px);
   letter-spacing: 0.02em;
   color: #1a1a1a;
   text-decoration: none;
-  transition: opacity 0.2s ease;
 }
 
 .main {
@@ -65,4 +64,8 @@ body {
   text-decoration: none;
   opacity: 0.45;
   transition: opacity 0.2s ease;
+}
+
+.links a:hover {
+  opacity: 1;
 }
