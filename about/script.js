@@ -19,6 +19,6 @@ document.addEventListener('selectstart', () => {
   const color = COLORS[Math.floor(Math.random() * COLORS.length)];
   const style = document.getElementById('selection-style') || document.createElement('style');
   style.id = 'selection-style';
-  style.textContent = `::selection { background: ${color}; color: white; }`;
+  style.textContent = `::selection { background: ${color}; color: #f5f5f5; }`;
   document.head.appendChild(style);
 });
