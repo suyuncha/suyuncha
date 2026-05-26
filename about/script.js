@@ -13,11 +13,12 @@ clickables.forEach(el => {
   el.addEventListener('mouseleave', function() {
     this.style.color = '#1a1a1a';
   });
-  document.addEventListener('selectstart', () => {
+});
+
+document.addEventListener('selectstart', () => {
   const color = COLORS[Math.floor(Math.random() * COLORS.length)];
   const style = document.getElementById('selection-style') || document.createElement('style');
   style.id = 'selection-style';
   style.textContent = `::selection { background: ${color}; color: white; }`;
   document.head.appendChild(style);
-});
 });
