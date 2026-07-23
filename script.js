@@ -23,7 +23,16 @@ document.querySelectorAll('.nav').forEach(el => {
     this.style.color = '#1a1a1a';
   });
 });
-
+document.querySelectorAll('.work-tag').forEach(el => {
+  el.addEventListener('mouseenter', function() {
+    this.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    this.style.opacity = '1';
+  });
+  el.addEventListener('mouseleave', function() {
+    this.style.color = '#1a1a1a';
+    this.style.opacity = '0.45';
+  });
+});
 /* 드래그 선택 색 */
 document.addEventListener('selectstart', () => {
   const color = COLORS[Math.floor(Math.random() * COLORS.length)];
