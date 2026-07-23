@@ -52,7 +52,7 @@ body {
 
 /* MAIN */
 .main {
-  padding: 120px 32px 80px;
+  padding: 120px 32px 80px 180px;
 }
 
 /* YEAR */
@@ -67,7 +67,12 @@ body {
 
 /* WORK ITEM */
 .work-item {
-  margin-bottom: 80px;
+  margin-bottom: 72px;
+  transition: opacity 0.3s ease;
+}
+
+.work-item.dimmed {
+  opacity: 0.15;
 }
 
 .work-link {
@@ -77,16 +82,12 @@ body {
 }
 
 .work-title {
-  font-size: clamp(32px, 6vw, 80px);
+  font-size: clamp(28px, 4.5vw, 60px);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.05;
-  margin-bottom: 16px;
-  transition: opacity 0.2s ease;
-}
-
-.work-link:hover .work-title {
-  opacity: 0.4;
+  margin-bottom: 12px;
+  transition: color 0.15s ease;
 }
 
 /* TAGS */
@@ -105,5 +106,9 @@ body {
 }
 
 .work-tag:hover {
+  opacity: 1;
+}
+
+.work-tag.active {
   opacity: 1;
 }
