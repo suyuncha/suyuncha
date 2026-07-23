@@ -118,7 +118,7 @@ body {
   margin-bottom: 12px;
   transition: color 0.15s ease;
   user-select: text; /* 제목만 개별 선택 가능 */
-  -webkit-user-select: none;
+  -webkit-user-select: text;
 }
 
 /* TAGS */
@@ -135,7 +135,7 @@ body {
   cursor: pointer;
   transition: opacity 0.2s ease;
   user-select: text; /* 태그만 개별 선택 가능 */
-  -webkit-user-select: none;
+  -webkit-user-select: text;
 }
 
 .work-tag:hover {
