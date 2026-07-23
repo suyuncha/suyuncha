@@ -4,6 +4,35 @@ const COLORS = [
   '#00ccff', '#ff0099'
 ];
 
+/* ===================================
+   CUSTOM CURSOR
+   =================================== */
+
+const cursor = document.createElement('div');
+cursor.id = 'cursor';
+document.body.appendChild(cursor);
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+/* 클릭 가능한 요소 호버 */
+document.querySelectorAll('a').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    cursor.style.background = color;
+    cursor.style.borderColor = color;
+    cursor.classList.add('active');
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.background = 'transparent';
+    cursor.style.borderColor = '#1a1a1a';
+    cursor.classList.remove('active');
+  });
+});
+
+/* 호버 컬러 */
 const clickables = document.querySelectorAll('.name, .links a');
 clickables.forEach(el => {
   el.addEventListener('mouseenter', function() {
@@ -14,6 +43,7 @@ clickables.forEach(el => {
   });
 });
 
+/* 드래그 선택 색 */
 document.addEventListener('selectstart', () => {
   const color = COLORS[Math.floor(Math.random() * COLORS.length)];
   const style = document.getElementById('selection-style') || document.createElement('style');
