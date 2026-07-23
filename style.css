@@ -28,6 +28,7 @@ body {
 .title {
   font-size: clamp(15px, 1.5vw, 22px);
   letter-spacing: 0.02em;
+  font-weight: 400;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -38,6 +39,7 @@ body {
   letter-spacing: 0.02em;
   color: #1a1a1a;
   text-decoration: none;
+  font-weight: 400;
 }
 
 .lang-btn {
@@ -50,52 +52,58 @@ body {
 
 /* MAIN */
 .main {
-  padding: 120px 32px 60px;
+  padding: 120px 32px 80px;
 }
 
-/* YEAR GROUP */
-.year-group {
-  margin-bottom: 60px;
-}
-
+/* YEAR */
 .year {
+  display: block;
   font-size: 12px;
   letter-spacing: 0.1em;
   opacity: 0.4;
-  display: block;
-  margin-bottom: 20px;
+  font-weight: 400;
+  margin-bottom: 40px;
 }
 
-/* WORK LIST */
-.work-list {
-  list-style: none;
-}
-
+/* WORK ITEM */
 .work-item {
-  border-top: 0.5px solid #1a1a1a;
-}
-
-.work-item:last-child {
-  border-bottom: 0.5px solid #1a1a1a;
+  margin-bottom: 80px;
 }
 
 .work-link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
+  display: block;
   text-decoration: none;
   color: #1a1a1a;
 }
 
 .work-title {
-  font-size: clamp(18px, 2.5vw, 32px);
-  letter-spacing: 0.02em;
+  font-size: clamp(32px, 6vw, 80px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  transition: opacity 0.2s ease;
+}
+
+.work-link:hover .work-title {
+  opacity: 0.4;
+}
+
+/* TAGS */
+.work-tags {
+  display: flex;
+  gap: 16px;
 }
 
 .work-tag {
   font-size: 12px;
   letter-spacing: 0.08em;
   opacity: 0.45;
+  font-weight: 400;
   cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.work-tag:hover {
+  opacity: 1;
 }
