@@ -4,8 +4,8 @@ const COLORS = [
   '#00ccff', '#ff0099'
 ];
 
-const clickables = document.querySelectorAll('.nav, .work-link');
-clickables.forEach(el => {
+/* 제목 호버 — 색 변경 (opacity 아님) */
+document.querySelectorAll('.work-title').forEach(el => {
   el.addEventListener('mouseenter', function() {
     this.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
   });
@@ -14,6 +14,17 @@ clickables.forEach(el => {
   });
 });
 
+/* 네비 호버 */
+document.querySelectorAll('.nav').forEach(el => {
+  el.addEventListener('mouseenter', function() {
+    this.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+  });
+  el.addEventListener('mouseleave', function() {
+    this.style.color = '#1a1a1a';
+  });
+});
+
+/* 드래그 선택 색 */
 document.addEventListener('selectstart', () => {
   const color = COLORS[Math.floor(Math.random() * COLORS.length)];
   const style = document.getElementById('selection-style') || document.createElement('style');
@@ -55,37 +66,32 @@ langBtn.addEventListener('click', () => {
    TAG FILTER
    =================================== */
 
-const tags = document.querySelectorAll('.work-tag');
 let activeTag = null;
 
-tags.forEach(tag => {
-  tag.style.cursor = 'pointer';
-
-  tag.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const tagValue = tag.dataset.en;
+document.querySelectorAll('.work-tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    const tagValue = tag.dataset.tag;
 
     if (activeTag === tagValue) {
       /* 같은 태그 다시 클릭 → 필터 해제 */
       activeTag = null;
       document.querySelectorAll('.work-item').forEach(item => {
-        item.style.opacity = '1';
-        item.style.pointerEvents = 'auto';
+        item.classList.remove('dimmed');
+      });
+      document.querySelectorAll('.work-tag').forEach(t => {
+        t.classList.remove('active');
       });
     } else {
-      /* 태그 필터 적용 */
       activeTag = tagValue;
       document.querySelectorAll('.work-item').forEach(item => {
-        const itemTag = item.querySelector('.work-tag').dataset.en;
-        if (itemTag === tagValue) {
-          item.style.opacity = '1';
-          item.style.pointerEvents = 'auto';
+        if (item.dataset.tags === tagValue) {
+          item.classList.remove('dimmed');
         } else {
-          item.style.opacity = '0.2';
-          item.style.pointerEvents = 'none';
+          item.classList.add('dimmed');
         }
+      });
+      document.querySelectorAll('.work-tag').forEach(t => {
+        t.classList.toggle('active', t.dataset.tag === tagValue);
       });
     }
   });
