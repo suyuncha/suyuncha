@@ -41,8 +41,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 32px;
-  padding-left: 180px
+  padding: 0 32px 0 180px;
   gap: 32px;
 }
 
