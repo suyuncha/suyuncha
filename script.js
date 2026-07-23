@@ -12,21 +12,19 @@ const cursor = document.createElement('div');
 cursor.id = 'cursor';
 document.body.appendChild(cursor);
 
-let currentColor = '#1a1a1a';
-
 document.addEventListener('mousemove', (e) => {
   cursor.style.left = e.clientX + 'px';
   cursor.style.top = e.clientY + 'px';
 });
 
-/* 클릭 가능한 요소 호버 → solid + 랜덤 컬러 */
-const hoverables = document.querySelectorAll('a, button, .work-tag, .work-title');
+/* 클릭 가능한 요소 호버 → solid + 랜덤 컬러 (work-title 제외) */
+const hoverables = document.querySelectorAll('a, button, .work-tag');
 
 hoverables.forEach(el => {
   el.addEventListener('mouseenter', () => {
-    currentColor = COLORS[Math.floor(Math.random() * COLORS.length)];
-    cursor.style.background = currentColor;
-    cursor.style.borderColor = currentColor;
+    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    cursor.style.background = color;
+    cursor.style.borderColor = color;
     cursor.classList.add('active');
   });
   el.addEventListener('mouseleave', () => {
@@ -37,7 +35,7 @@ hoverables.forEach(el => {
 });
 
 /* ===================================
-   제목 호버 컬러
+   제목 호버 — 커서랑 텍스트 같은 색
    =================================== */
 
 document.querySelectorAll('.work-title').forEach(el => {
@@ -46,11 +44,13 @@ document.querySelectorAll('.work-title').forEach(el => {
     this.style.color = color;
     cursor.style.background = color;
     cursor.style.borderColor = color;
+    cursor.classList.add('active');
   });
   el.addEventListener('mouseleave', function() {
     this.style.color = '#1a1a1a';
     cursor.style.background = 'transparent';
     cursor.style.borderColor = '#1a1a1a';
+    cursor.classList.remove('active');
   });
 });
 
