@@ -18,9 +18,9 @@ body {
 
 #cursor {
   position: fixed;
-  width: 10px;
-  height: 10px;
-  border: 1px solid #1a1a1a;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #1a1a1a;
   border-radius: 50%;
   background: transparent;
   pointer-events: none;
@@ -140,4 +140,17 @@ body {
 
 .work-tag.active {
   opacity: 1;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .main {
+    padding: 120px 24px 80px 24px;
+  }
+  #cursor {
+    display: none;
+  }
+  * {
+    cursor: auto !important;
+  }
 }
