@@ -18,9 +18,9 @@ body {
 
 #cursor {
   position: fixed;
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid #1a1a1a;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #1a1a1a;
   border-radius: 50%;
   background: transparent;
   pointer-events: none;
