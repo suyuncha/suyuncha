@@ -4,13 +4,53 @@ const COLORS = [
   '#00ccff', '#ff0099'
 ];
 
-/* 제목 호버 — 색 변경 (opacity 아님) */
+/* ===================================
+   CUSTOM CURSOR
+   =================================== */
+
+const cursor = document.createElement('div');
+cursor.id = 'cursor';
+document.body.appendChild(cursor);
+
+let currentColor = '#1a1a1a';
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+/* 클릭 가능한 요소 호버 → solid + 랜덤 컬러 */
+const hoverables = document.querySelectorAll('a, button, .work-tag, .work-title');
+
+hoverables.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    currentColor = COLORS[Math.floor(Math.random() * COLORS.length)];
+    cursor.style.background = currentColor;
+    cursor.style.borderColor = currentColor;
+    cursor.classList.add('active');
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.background = 'transparent';
+    cursor.style.borderColor = '#1a1a1a';
+    cursor.classList.remove('active');
+  });
+});
+
+/* ===================================
+   제목 호버 컬러
+   =================================== */
+
 document.querySelectorAll('.work-title').forEach(el => {
   el.addEventListener('mouseenter', function() {
-    this.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    this.style.color = color;
+    cursor.style.background = color;
+    cursor.style.borderColor = color;
   });
   el.addEventListener('mouseleave', function() {
     this.style.color = '#1a1a1a';
+    cursor.style.background = 'transparent';
+    cursor.style.borderColor = '#1a1a1a';
   });
 });
 
@@ -23,6 +63,8 @@ document.querySelectorAll('.nav').forEach(el => {
     this.style.color = '#1a1a1a';
   });
 });
+
+/* 태그 호버 */
 document.querySelectorAll('.work-tag').forEach(el => {
   el.addEventListener('mouseenter', function() {
     this.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
@@ -33,6 +75,7 @@ document.querySelectorAll('.work-tag').forEach(el => {
     this.style.opacity = '0.45';
   });
 });
+
 /* 드래그 선택 색 */
 document.addEventListener('selectstart', () => {
   const color = COLORS[Math.floor(Math.random() * COLORS.length)];
@@ -82,7 +125,6 @@ document.querySelectorAll('.work-tag').forEach(tag => {
     const tagValue = tag.dataset.tag;
 
     if (activeTag === tagValue) {
-      /* 같은 태그 다시 클릭 → 필터 해제 */
       activeTag = null;
       document.querySelectorAll('.work-item').forEach(item => {
         item.classList.remove('dimmed');
