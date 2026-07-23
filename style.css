@@ -96,5 +96,6 @@ body {
 .work-tag {
   font-size: 12px;
   letter-spacing: 0.08em;
-  opacity: 0.4;
+  opacity: 0.45;
+  cursor: pointer;
 }
