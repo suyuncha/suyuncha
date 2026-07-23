@@ -35,15 +35,16 @@ hoverables.forEach(el => {
 });
 
 /* ===================================
-   제목 호버 — 커서랑 텍스트 같은 색
+   제목 호버 
    =================================== */
 
 document.querySelectorAll('.work-title').forEach(el => {
   el.addEventListener('mouseenter', function() {
-    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
-    this.style.color = color;
-    cursor.style.background = color;
-    cursor.style.borderColor = color;
+    const colorText = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const colorCursor = COLORS[Math.floor(Math.random() * COLORS.length)];
+    this.style.color = colorText;
+    cursor.style.background = colorCursor;
+    cursor.style.borderColor = colorCursor;
     cursor.classList.add('active');
   });
   el.addEventListener('mouseleave', function() {
