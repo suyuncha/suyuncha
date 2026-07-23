@@ -63,7 +63,7 @@ body {
   opacity: 0.4;
   font-weight: 400;
   margin-bottom: 40px;
-  user-select: none;
+  user-select: text;
 }
 
 /* WORK ITEM */
