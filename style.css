@@ -155,8 +155,8 @@ body {
 /* 모바일 */
 @media (max-width: 768px) {
   .main {
-    padding: 100px 24px 80px 32px;
-  }
+  padding: 0 24px 0 48px;
+}
 
   .title {
     font-size: clamp(13px, 3.5vw, 18px);
