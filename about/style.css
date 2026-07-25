@@ -95,7 +95,7 @@ body {
 /* 태블릿 */
 @media (max-width: 1024px) and (min-width: 769px) {
   .main {
-    padding: 0 80px 0 80px;
+    padding: 0 120px 0 80px;
   }
   .desc {
     font-size: clamp(18px, 2.5vw, 28px);
