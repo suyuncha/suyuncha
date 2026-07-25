@@ -96,6 +96,8 @@ body {
 @media (max-width: 1024px) and (min-width: 769px) {
   .main {
     padding: 0 120px 0 80px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .desc {
     font-size: clamp(18px, 2.5vw, 28px);
