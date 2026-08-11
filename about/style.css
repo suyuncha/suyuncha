@@ -56,6 +56,7 @@ body {
   text-decoration: none;
 }
 
+/* 데스크탑 기본 */
 .main {
   width: 100vw;
   height: 100vh;
@@ -63,7 +64,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 32px 0 180px;
+  padding: 0 180px 0 180px;
   gap: 32px;
 }
 
@@ -95,12 +96,10 @@ body {
 /* 태블릿 */
 @media (max-width: 1024px) and (min-width: 769px) {
   .main {
-    padding: 0 120px 0 80px;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 0 80px 0 80px;
   }
   .desc {
-    font-size: clamp(18px, 2.5vw, 28px);
+    font-size: clamp(16px, 2.2vw, 26px);
   }
   .desc br {
     display: none;
@@ -120,6 +119,10 @@ body {
   }
   .desc br {
     display: none;
+  }
+  .links {
+    flex-direction: column;
+    gap: 12px;
   }
   .label {
     font-size: clamp(13px, 3.5vw, 18px);
