@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pen</title>
+  <link rel="icon" href="images/favicon.png">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      cursor: url("images/star.png") 16 16, auto;
+    }
 
+    .stage {
+      position: relative;
+      width: min(92vw, 1200px);
+      aspect-ratio: 2388 / 1668;
+    }
+
+    .stage input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .layer,
+    .stage label img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .layer { pointer-events: none; }
+    
+    .nib { display: none; }
+
+    .stage label {
+      position: absolute;
+      inset: 0;
+      display: block;
+      cursor: url("images/star-outline.png") 16 16, pointer;
+    }
+    .lab-in { display: none; }
+
+    #pushed:checked ~ .lab-out { display: none; }
+    #pushed:checked ~ .lab-in  { display: block; }
+    #pushed:checked ~ .nib     { display: block; }
+
+    .arrow {
+      position: absolute;
+      right: 4%;
+      bottom: 6%;
+      width: 12%;
+      opacity: 0;
+      pointer-events: none;
+      cursor: url("images/star-outline.png") 16 16, pointer;
+    }
+    .arrow img { display: block; width: 100%; }
+    .arrow .on { display: none; }
+    .arrow:hover .off { display: none; }
+    .arrow:hover .on  { display: block; }
+
+    #pushed:checked ~ .arrow,
+    #reset:checked  ~ .arrow {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <input type="radio" name="pen" id="pushed">
+    <input type="radio" name="pen" id="reset">
+
+    <img class="layer body" src="images/pen-body.png" alt="">
+    <img class="layer nib" src="images/pen-nib.png" alt="">
+
+    <label for="pushed" class="lab-out"><img src="images/pen-click-out.png" alt=""></label>
+    <label for="reset" class="lab-in"><img src="images/pen-click-in.png" alt=""></label>
+
+    <a class="arrow" href="writing.html">
+      <img class="off" src="images/arrow1.png" alt="next">
+      <img class="on" src="images/arrow1-hover.png" alt="">
+    </a>
+  </main>
+</body>
+</html>
