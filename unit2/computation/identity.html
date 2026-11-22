@@ -9,7 +9,16 @@
 </head>
 <body>
   <main class="stage">
-    <img class="layer" src="images/identity.png" alt="A hand-drawn face with glasses and long black hair, winking">
+    <input type="radio" name="pen" id="pushed">
+
+    <!-- 처음 얼굴. 어디든 누르면 윙크해요 -->
+    <label for="pushed" class="lab-out"><img src="images/identity.png" alt="A hand-drawn face with glasses and long black hair"></label>
+
+    <!-- 윙크한 얼굴. 누른 뒤에 나타나요 -->
+    <img class="layer nib" src="images/identity-wink.png" alt="The same face, winking">
+
+    <!-- 윙크한 뒤 얼굴을 누르면 첫 페이지로 돌아가요 -->
+    <a class="nib back" href="index.html" aria-label="Back to the start"></a>
   </main>
 </body>
 </html>
