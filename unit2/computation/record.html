@@ -7,7 +7,6 @@
   <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* 페이지를 열면 레코드판이 바로 돌아요. 판이 캔버스 한가운데에 있어야 제자리에서 돌아요 */
     @keyframes spin {
       from { transform: rotate(0deg); }
       to   { transform: rotate(360deg); }
@@ -22,14 +21,13 @@
   </style>
 </head>
 <body>
+  <img class="layer" src="images/record-word.png" alt="Record">
   <main class="stage">
     <input type="radio" name="pen" id="pushed">
     <input type="radio" name="pen" id="reset">
 
-    <!-- 레코드판 -->
     <img class="layer disc" src="images/record.png" alt="A hand-drawn vinyl record spinning, with a small picture on its label">
 
-    <!-- 눈에 안 보이는 클릭 영역: 돌고 있을 때 누르면 멈추고, 멈춰 있을 때 누르면 다시 돌아요 -->
     <label for="pushed" class="lab-out"></label>
     <label for="reset" class="lab-in"></label>
 
