@@ -4,18 +4,15 @@ body {
   display: grid;
   place-items: center;
   background: #fff;
-  /* 손으로 그린 별 커서. 파일이 없으면 기본 커서로 대체돼요 */
   cursor: url("images/star.png") 16 16, auto;
 }
 
-/* 모든 이미지가 겹쳐지는 무대. 비율은 작업 캔버스(2388x1668)와 같아요 */
 .stage {
   position: relative;
   width: min(92vw, 1200px);
   aspect-ratio: 2388 / 1668;
 }
 
-/* 상태를 기억하는 라디오 버튼 (화면에는 안 보여요) */
 .stage input {
   position: absolute;
   opacity: 0;
@@ -32,10 +29,8 @@ body {
 
 .layer { pointer-events: none; }
 
-/* 펜촉: 눌렀을 때만 보여요 */
 .nib { display: none; }
 
-/* 클릭 영역 (라벨 안에 클릭 이미지가 들어 있어요) */
 .stage label {
   position: absolute;
   inset: 0;
@@ -48,7 +43,6 @@ body {
 #pushed:checked ~ .lab-in  { display: block; }
 #pushed:checked ~ .nib     { display: block; }
 
-/* 화살표: 한 번이라도 누르면 나타나요 */
 .arrow {
   position: absolute;
   right: 4%;
@@ -70,7 +64,6 @@ body {
   pointer-events: auto;
 }
 
-/* 3번 Record: 페이지를 열면 레코드판이 바로 돌아요. 판이 캔버스 한가운데에 있어야 제자리에서 돌아요 */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
@@ -78,13 +71,11 @@ body {
 .disc {
   animation: spin 4s linear infinite;
 }
-/* 누르면 멈추고, 다시 누르면 이어서 돌아요 */
+
 #pushed:checked ~ .disc {
   animation-play-state: paused;
 }
 
-/* 6번 Identity: 윙크한 뒤 얼굴을 다시 누르면 첫 페이지로 돌아가요.
-   누를 수 있는 곳은 얼굴 부분만이에요. 위치가 어긋나면 left, top, width, height를 조정하세요 */
 .back {
   position: absolute;
   left: 40%;
@@ -92,9 +83,4 @@ body {
   width: 22%;
   height: 40%;
   cursor: url("images/star-outline.png") 16 16, pointer;
-}
-
-/* 5번 Memory: 뇌와 해마 그림을 화면 가운데를 기준으로 줄여서 보여요. 크기는 scale 숫자로 조절하세요 (1이 원래 크기) */
-.memory label img {
-  transform: scale(0.6);
 }
