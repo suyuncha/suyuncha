@@ -82,3 +82,14 @@ body {
 #pushed:checked ~ .disc {
   animation-play-state: paused;
 }
+
+/* 6번 Identity: 윙크한 뒤 얼굴을 다시 누르면 첫 페이지로 돌아가요.
+   누를 수 있는 곳은 얼굴 부분만이에요. 위치가 어긋나면 left, top, width, height를 조정하세요 */
+.back {
+  position: absolute;
+  left: 40%;
+  top: 25%;
+  width: 22%;
+  height: 40%;
+  cursor: url("images/star-outline.png") 16 16, pointer;
+}
