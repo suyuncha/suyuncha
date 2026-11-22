@@ -3,7 +3,7 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: #fff;
+  background: #f9c;
   /* 손으로 그린 별 커서. 파일이 없으면 기본 커서로 대체돼요 */
   cursor: url("images/star.png") 16 16, auto;
 }
