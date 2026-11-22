@@ -69,3 +69,16 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* 3번 Record: 페이지를 열면 레코드판이 바로 돌아요. 판이 캔버스 한가운데에 있어야 제자리에서 돌아요 */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.disc {
+  animation: spin 4s linear infinite;
+}
+/* 누르면 멈추고, 다시 누르면 이어서 돌아요 */
+#pushed:checked ~ .disc {
+  animation-play-state: paused;
+}
