@@ -64,7 +64,8 @@ body {
 .arrow:hover .on  { display: block; }
 
 #pushed:checked ~ .arrow,
-#reset:checked  ~ .arrow {
+#reset:checked  ~ .arrow,
+.arrow.show {
   opacity: 1;
   pointer-events: auto;
 }
