@@ -93,3 +93,8 @@ body {
   height: 40%;
   cursor: url("images/star-outline.png") 16 16, pointer;
 }
+
+/* 5번 Memory: 뇌와 해마 그림을 화면 가운데를 기준으로 줄여서 보여요. 크기는 scale 숫자로 조절하세요 (1이 원래 크기) */
+.memory label img {
+  transform: scale(0.6);
+}
