@@ -3,19 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Writing</title>
+  <title>Record</title>
   <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* 클릭 요소가 없는 동안 화살표를 처음부터 보이게 해요. 이미지를 넣고 클릭 구조를 만들면 지울 거예요 */
-    .arrow { opacity: 1; pointer-events: auto; }
+    /* 누르면 레코드판이 세 바퀴 돌다가 서서히 멈춰요. 판이 캔버스 한가운데에 있어야 제자리에서 돌아요 */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(1080deg); }
+    }
+    #pushed:checked ~ .disc {
+      animation: spin 5s ease-out forwards;
+    }
   </style>
 </head>
 <body>
   <main class="stage">
-    <!-- 이 페이지의 그림은 여기에 넣어요. 예시:
-    <img class="layer" src="images/writing.png" alt="">
-    -->
+    <input type="radio" name="pen" id="pushed">
+
+    <!-- 레코드판. 누르기 전에는 멈춰 있어요 -->
+    <img class="layer disc" src="images/record.png" alt="A hand-drawn vinyl record with a small picture on its label">
+
+    <!-- 눈에 안 보이는 클릭 영역. 한 번 누르면 사라져요 -->
+    <label for="pushed" class="lab-out"></label>
 
     <a class="arrow" href="archive.html">
       <img class="off" src="images/arrow3.png" alt="next">
