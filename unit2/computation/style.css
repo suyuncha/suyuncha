@@ -3,7 +3,7 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: #f9c;
+  background: #fff;
   /* 손으로 그린 별 커서. 파일이 없으면 기본 커서로 대체돼요 */
   cursor: url("images/star.png") 16 16, auto;
 }
@@ -42,7 +42,7 @@ body {
   display: block;
   cursor: url("images/star-outline.png") 16 16, pointer;
 }
-.lab-in { display: none; }
+.stage .lab-in { display: none; }
 
 #pushed:checked ~ .lab-out { display: none; }
 #pushed:checked ~ .lab-in  { display: block; }
